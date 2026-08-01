@@ -97,6 +97,18 @@
     ],
     "footer": "Delta branches add targeted changes with intentional findings for testing edge cases."
   },
+  "monorepo": {
+    "heading": "Multi-team? Use the monorepo layout.",
+    "description": "The main branch is a single-team setup. For organizations with multiple teams, the monorepo example branch organizes resources by team — each with their own canonical skills, rules, and workflows.",
+    "ctaLabel": "See the monorepo example →",
+    "teams": [
+      {"name": "shared/", "description": "Cross-team resources every team gets — /detect-stack, /document, /drawio, /review-pr"},
+      {"name": "frontend/", "description": "Frontend team — /review-frontend, /accessibility, react-conventions"},
+      {"name": "backend/", "description": "Backend team — /review-api, /database-migration, api-conventions"},
+      {"name": "infra/", "description": "Infra team — /review-terraform, /incident-runbook, terraform-conventions"}
+    ],
+    "footer": "Each team points their Forge source at a subdirectory — or uses include/exclude globs for fine-grained control."
+  },
   "delivery": {
     "heading": "Flexible delivery. Use what works for you.",
     "description": "The platform is an abstract idea that structures your AI resources and helps you manage them. That's it. How you deliver them to developers is entirely up to you.",

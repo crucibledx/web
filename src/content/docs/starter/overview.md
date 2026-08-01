@@ -28,7 +28,7 @@ One orchestrator, three phases:
 Put a file in the right place — the platform discovers it. No config, no registration.
 
 | What       | Convention                           | Discovered by                               |
-| ---------- | ------------------------------------ | ------------------------------------------- |
+|------------|--------------------------------------|---------------------------------------------|
 | Skill      | `skills/<name>/SKILL.md`             | `/create-resource`, `/test-resource`, Forge |
 | Skill docs | `skills/<name>/README.md`            | Developers browsing the repo                |
 | Design     | `docs/<name>/design.md`              | `/design-resource`, `/develop-resource`     |
@@ -63,6 +63,35 @@ forge-skills-starter/
 **Shared** (`skills/`, `rules/`, `workflows/`) → delivered to consumer repos via Forge.
 
 **Platform** (everything else) → stays in this repo, powers development and testing.
+
+## Multi-team / Monorepo setup
+
+The `main` branch is a single-team setup. For organizations with multiple teams, the [`example/monorepo`](https://github.com/crucibledx/forge-skills-starter/tree/example/monorepo) branch demonstrates team-scoped resources:
+
+```
+shared/       # Cross-team resources (every team gets these)
+frontend/     # Frontend team — /review-frontend, /accessibility, react-conventions
+backend/      # Backend team — /review-api, /database-migration, api-conventions
+infra/        # Infra team — /review-terraform, /incident-runbook, terraform-conventions
+```
+
+Each team folder contains a full canonical layout (`skills/`, `rules/`, `workflows/`). With Forge, each team points their source at the repo with a `subdirectory` filter or uses `include`/`exclude` globs for fine-grained control:
+
+```yaml
+# Frontend team's forge config
+sources:
+  - name: shared
+    type: git
+    url: https://github.com/your-org/forge-skills-starter.git
+    branch: example/monorepo
+    subdirectory: shared
+
+  - name: frontend
+    type: git
+    url: https://github.com/your-org/forge-skills-starter.git
+    branch: example/monorepo
+    subdirectory: frontend
+```
 
 ## Using with Forge
 

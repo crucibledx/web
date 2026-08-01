@@ -4,6 +4,14 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.2] — 2026-08-01
+
+### Added
+
+- **Monorepo example section** — starter marketing page and docs now reference the `example/monorepo` branch with team-scoped resources (frontend, backend, infra, shared)
+
+---
+
 ## [0.1.1] — 2026-08-01
 
 ### Added

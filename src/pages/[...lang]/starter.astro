@@ -22,6 +22,7 @@ const skillItems = messages.catalog.skills as Array<{
 }>
 const ruleItems = messages.catalog.rules as Array<{name: string; description: string}>
 const specimenItems = messages.testing.specimens as Array<{code: string; description: string}>
+const monorepoTeams = messages.monorepo.teams as Array<{name: string; description: string}>
 ---
 
 <MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
@@ -214,6 +215,37 @@ const specimenItems = messages.testing.specimens as Array<{code: string; descrip
       <p class="mt-4 text-center text-sm text-steel-400 dark:text-steel-500">
         {t('testing.footer')}
       </p>
+    </div>
+  </section>
+
+  <!-- Multi-Team / Monorepo -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('monorepo.heading')}</h2>
+      <p class="mx-auto mb-8 max-w-2xl text-center text-steel-500 dark:text-steel-400">
+        {t('monorepo.description')}
+      </p>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {
+          monorepoTeams.map((team) => (
+            <div class="rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800">
+              <h4 class="mb-1 font-mono text-sm font-bold text-molten-500 dark:text-molten-400">{team.name}</h4>
+              <p class="text-xs text-steel-500 dark:text-steel-400">{team.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-6 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('monorepo.footer')}
+      </p>
+      <div class="mt-4 text-center">
+        <a
+          href="https://github.com/crucibledx/forge-skills-starter/tree/example/monorepo"
+          class="text-sm font-semibold text-molten-500 transition-colors hover:text-molten-700 dark:text-molten-400 dark:hover:text-molten-300"
+        >
+          {t('monorepo.ctaLabel')}
+        </a>
+      </div>
     </div>
   </section>
 
