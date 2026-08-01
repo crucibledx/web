@@ -1,0 +1,57 @@
+---
+import TerminalPlaceholder from './TerminalPlaceholder.astro'
+
+interface Props {
+  headline: string
+  subheadline: string
+  ctaPrimary?: {label: string; href: string}
+  ctaSecondary?: {label: string; href: string}
+  terminalDemo?: string
+}
+
+const {headline, subheadline, ctaPrimary, ctaSecondary, terminalDemo} = Astro.props
+---
+
+<section class="relative overflow-hidden px-6 py-20 md:py-32">
+  <div class="mx-auto max-w-4xl text-center">
+    <h1
+      class="mb-6 text-4xl font-bold leading-tight tracking-tight text-steel-900 md:text-5xl lg:text-6xl dark:text-steel-100"
+    >
+      {headline}
+    </h1>
+    <p class="mx-auto mb-10 max-w-2xl text-lg text-steel-500 md:text-xl dark:text-steel-300">
+      {subheadline}
+    </p>
+
+    {
+      (ctaPrimary || ctaSecondary) && (
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          {ctaPrimary && (
+            <a
+              href={ctaPrimary.href}
+              class="rounded-lg bg-molten-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-molten-700"
+            >
+              {ctaPrimary.label}
+            </a>
+          )}
+          {ctaSecondary && (
+            <a
+              href={ctaSecondary.href}
+              class="rounded-lg border border-steel-300 px-6 py-3 text-sm font-semibold text-steel-700 transition-colors hover:border-molten-500 hover:text-molten-500 dark:border-steel-600 dark:text-steel-300 dark:hover:border-molten-400 dark:hover:text-molten-400"
+            >
+              {ctaSecondary.label}
+            </a>
+          )}
+        </div>
+      )
+    }
+
+    {
+      terminalDemo && (
+        <div class="mt-12">
+          <TerminalPlaceholder title={terminalDemo} />
+        </div>
+      )
+    }
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import {Icon} from 'astro-icon/components'
+
+interface Props {
+  heading?: string
+  footer?: string
+}
+
+const {heading = 'Supports your favorite AI tools', footer = "More coming. It's pluggable."} = Astro.props
+---
+
+<div class="text-center">
+  <p class="mb-6 text-sm font-medium uppercase tracking-wider text-steel-400 dark:text-steel-500">
+    {heading}
+  </p>
+  <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+    <div class="flex items-center gap-2.5">
+      <Icon name="meteor-icons:claude-code" class="h-6 w-6 shrink-0 text-[#D97706]" />
+      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Claude Code</span>
+    </div>
+    <div class="flex items-center gap-2.5">
+      <Icon name="bxl:cursor-ai" class="h-6 w-6 shrink-0 text-[#8B5CF6]" />
+      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Cursor</span>
+    </div>
+    <div class="flex items-center gap-2.5">
+      <Icon name="bxl:windsurf" class="h-6 w-6 shrink-0 text-[#06B6D4]" />
+      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Windsurf</span>
+    </div>
+    <div class="flex items-center gap-2.5">
+      <Icon name="bxl:github-copilot" class="h-6 w-6 shrink-0 text-[#6366F1]" />
+      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">GitHub Copilot</span>
+    </div>
+    <div class="flex items-center gap-2.5">
+      <Icon name="simple-icons:cline" class="h-6 w-6 shrink-0 text-[#10B981]" />
+      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Cline</span>
+    </div>
+  </div>
+  <p class="mt-4 text-xs text-steel-400 dark:text-steel-500">{footer}</p>
+</div>

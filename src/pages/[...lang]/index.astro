@@ -1,0 +1,140 @@
+---
+import MarketingLayout from '../../layouts/MarketingLayout.astro'
+import Hero from '../../components/Hero.astro'
+import ProductCard from '../../components/ProductCard.astro'
+import SupportedTools from '../../components/SupportedTools.astro'
+import FeatureGrid from '../../components/FeatureGrid.astro'
+import {getLocalePaths, useTranslations} from '../../i18n'
+import type {LocaleProps} from '../../i18n'
+
+export const getStaticPaths = getLocalePaths
+
+const {locale} = Astro.props as LocaleProps
+const t = useTranslations(locale, 'home')
+---
+
+<MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
+  <Hero
+    headline={t('hero.headline')}
+    subheadline={t('hero.subheadline')}
+    ctaPrimary={{label: t('hero.ctaPrimary'), href: '/getting-started/installation'}}
+    ctaSecondary={{label: t('hero.ctaSecondary'), href: 'https://github.com/crucibledx'}}
+    terminalDemo={t('hero.terminalDemo')}
+  />
+
+  <!-- Problem Statement -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('problem.heading')}</h2>
+      <FeatureGrid
+        columns={3}
+        features={[
+          {
+            icon: t('problem.scattered.icon'),
+            title: t('problem.scattered.title'),
+            description: t('problem.scattered.description'),
+          },
+          {
+            icon: t('problem.drift.icon'),
+            title: t('problem.drift.title'),
+            description: t('problem.drift.description'),
+          },
+          {
+            icon: t('problem.visibility.icon'),
+            title: t('problem.visibility.title'),
+            description: t('problem.visibility.description'),
+          },
+        ]}
+      />
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.heading')}</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div class="text-center">
+          <div
+            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
+          >
+            1
+          </div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step1.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('howItWorks.step1.description')}
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
+          >
+            2
+          </div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step2.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('howItWorks.step2.description')}
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
+          >
+            3
+          </div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step3.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('howItWorks.step3.description')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Tools -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-7xl">
+      <SupportedTools heading={t('tools.heading')} footer={t('tools.more')} />
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('ecosystem.heading')}</h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <ProductCard
+          name={t('ecosystem.forge.name')}
+          description={t('ecosystem.forge.description')}
+          href="/forge"
+          iconName="cib:conda-forge"
+          iconClass="text-molten-500"
+          badge={t('ecosystem.forge.badge')}
+        />
+        <ProductCard
+          name={t('ecosystem.starter.name')}
+          description={t('ecosystem.starter.description')}
+          href="/starter"
+          iconName="carbon:platforms"
+          iconClass="text-molten-500"
+          badge={t('ecosystem.starter.badge')}
+        />
+        <ProductCard
+          name={t('ecosystem.ember.name')}
+          description={t('ecosystem.ember.description')}
+          href="/ember"
+          iconName="game-icons:ember-shot"
+          iconClass="text-molten-500"
+          badge={t('ecosystem.ember.badge')}
+        />
+      </div>
+      <p class="mt-8 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('ecosystem.more').split('{link}')[0]}<a
+          href="/about"
+          class="text-molten-500 hover:text-molten-700 dark:text-molten-400 dark:hover:text-molten-200"
+          >{t('ecosystem.roadmapLink')}</a
+        >{t('ecosystem.more').split('{link}')[1]}
+      </p>
+    </div>
+  </section>
+</MarketingLayout>

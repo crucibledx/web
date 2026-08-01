@@ -4,6 +4,26 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.1] — 2026-08-01
+
+### Added
+
+- **Astro + Starlight + Tailwind v4** — full project setup with build pipeline.
+- **Marketing pages** — landing (`/`), Forge (`/forge`), Ember (`/ember`), Starter (`/starter`), About (`/about`).
+- **Starlight documentation** — 13 doc pages across Getting Started, Forge, Starter Platform, and Platform sections.
+- **Components** — Hero, ProductCard, FeatureGrid, SupportedTools, TerminalPlaceholder, Navbar, Footer, MarketingLayout.
+- **i18n system** — all marketing pages wired to JSON locale files via `t()` calls and `getMessages()` data iteration.
+- **Global CSS for marketing content** — scoped styles for inline `<code>` and `<strong>` rendered from i18n JSON via `set:html`.
+- **Color system** — molten/steel tokens mapped to Starlight accent/gray + custom brand tokens.
+- **Typography** — Inter (body) + JetBrains Mono (headings/code) via Google Fonts.
+- **Search** — Pagefind integration via Starlight (auto-indexed 19 pages).
+- **Sitemap** — auto-generated via `@astrojs/sitemap`.
+- **GitHub CI workflow** — PR checks: format, lint, typecheck, build.
+- **GitHub CD workflow** — deploy to Cloudflare Pages on push to `main`.
+- **SVG optimization** — logos/favicon via SVGO; all diagrams as pure vector.
+
+---
+
 ## [0.1.0] — 2026-06-22
 
 ### Added

@@ -1,0 +1,24 @@
+@theme {
+  /* Custom brand tokens */
+  --color-molten-100: #ffd580;
+  --color-molten-200: #ffa940;
+  --color-molten-400: #ff6b1a;
+  --color-molten-500: #e84d00;
+  --color-molten-700: #c13800;
+  --color-molten-900: #7a1f00;
+
+  --color-steel-100: #e2e8f0;
+  --color-steel-200: #cbd5e0;
+  --color-steel-300: #a0aec0;
+  --color-steel-400: #718096;
+  --color-steel-500: #4a5568;
+  --color-steel-600: #3d4a5c;
+  --color-steel-700: #2d3748;
+  --color-steel-800: #1f2937;
+  --color-steel-900: #111827;
+  --color-steel-950: #0d1117;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}

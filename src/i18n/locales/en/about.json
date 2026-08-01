@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "About — Crucible",
+    "description": "What Crucible is, why it exists, and where it's going."
+  },
+  "hero": {
+    "headline": "Don't compete. Complete.",
+    "subheadline": "Crucible is a Developer Experience infrastructure platform — a collection of focused open-source tools that eliminate friction developers face with AI assistant configuration management across tools, repos, and teams."
+  },
+  "metaphor": {
+    "heading": "The metallurgy metaphor",
+    "description": "A crucible is the vessel where raw materials are refined under pressure into something useful. Every product name maps to a stage in the metalworking process.",
+    "items": [
+      {"name": "Forge", "description": "— Shape raw materials into useful tools (CLI that shapes configs)"},
+      {"name": "Smelt", "description": "— Extract pure metal from ore (shared plugin engine library)"},
+      {"name": "Anvil", "description": "— The surface you build on (SDK for third-party plugins)"},
+      {"name": "Lathe", "description": "— Precision shaping tool (MCP server wrapping forge commands)"},
+      {"name": "Foundry", "description": "— Where you cast finished goods (plugin registry/marketplace)"},
+      {"name": "Cast", "description": "— Pour into molds (frontend/embed scaffolding CLI)"},
+      {"name": "Ember", "description": "— The glow that shows where heat is (AI observability)"},
+      {"name": "Mesh", "description": "— Interlocking metal (config conflict resolution engine)"}
+    ]
+  },
+  "principles": {
+    "heading": "Founding principles",
+    "items": [
+      {
+        "title": "Don't compete, complete",
+        "description": "Build the cross-tool coordination layer that no single AI vendor will build. Complement every tool, compete with none."
+      },
+      {
+        "title": "DX is the whole product",
+        "description": "If it's not delightful to use, it doesn't ship. Developer experience isn't a feature — it's the product itself."
+      },
+      {
+        "title": "Build for the final vision from day one",
+        "description": "Architecture supports the endgame even when shipping an MVP. No throwaway scaffolding."
+      },
+      {
+        "title": "Speed over completeness",
+        "description": "Ship narrow, iterate fast. A working tool today beats a perfect tool next quarter."
+      },
+      {
+        "title": "Community is the moat",
+        "description": "Open source. MIT license. Community contributions outscale any solo effort."
+      },
+      {
+        "title": "Cross-tool is the structural advantage",
+        "description": "No AI vendor will solve the multi-tool problem. The value is in the space between tools."
+      },
+      {
+        "title": "Platform outlasts any individual tool",
+        "description": "AI tools will come and go. The coordination infrastructure persists."
+      }
+    ]
+  },
+  "roadmap": {
+    "heading": "Product roadmap",
+    "thProduct": "Product",
+    "thType": "Type",
+    "thPurpose": "Purpose",
+    "thStatus": "Status",
+    "footer": "Architecture: platform of focused CLIs sharing <code>@crucibledx/smelt</code>. See {link}.",
+    "architectureLink": "platform architecture",
+    "items": [
+      {"name": "Forge", "type": "CLI", "purpose": "AI environment config sync", "status": "Shipped"},
+      {"name": "Ember", "type": "Collector", "purpose": "AI assistant observability", "status": "Researched"},
+      {"name": "Smelt", "type": "Library", "purpose": "Shared plugin engine", "status": "Designed"},
+      {"name": "Anvil", "type": "SDK", "purpose": "Plugin development SDK", "status": "Designed"},
+      {"name": "Lathe", "type": "MCP Server", "purpose": "Forge commands as MCP tools", "status": "Designed"},
+      {"name": "Foundry", "type": "Web + API", "purpose": "Plugin registry/marketplace", "status": "Designed"},
+      {"name": "Cast", "type": "CLI", "purpose": "Frontend/embed scaffolding", "status": "Designed"}
+    ]
+  },
+  "architecture": {
+    "heading": "Path C: Platform of CLIs",
+    "description": "Three architecture paths were evaluated: a god-mode universal CLI, separate CLIs with no shared code, or a platform of focused CLIs sharing a plugin infrastructure library. Path C won.",
+    "diagramAlt": "Crucible Ecosystem — Platform of focused CLIs",
+    "caption": "Each product is independent enough to be useful alone, but shares infrastructure for engineering leverage, community cohesion, and a defensible moat."
+  }
+}

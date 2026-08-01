@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "forge": "Forge",
+    "skills": "Skills",
+    "ember": "Ember",
+    "about": "About",
+    "docs": "Docs",
+    "toggleDarkMode": "Toggle dark mode",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "products": "Products",
+    "forgeCli": "Forge CLI",
+    "skillsPlatform": "Skills Platform",
+    "ember": "Ember",
+    "documentation": "Documentation",
+    "gettingStarted": "Getting Started",
+    "forgeCommands": "Forge Commands",
+    "platformOverview": "Platform Overview",
+    "community": "Community",
+    "github": "GitHub",
+    "about": "About",
+    "contact": "Contact",
+    "copyright": "© {year} Crucible. MIT License."
+  }
+}

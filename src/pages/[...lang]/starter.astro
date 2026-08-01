@@ -1,0 +1,269 @@
+---
+import MarketingLayout from '../../layouts/MarketingLayout.astro'
+import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
+import type {LocaleProps} from '../../i18n'
+
+export const getStaticPaths = getLocalePaths
+
+const {locale} = Astro.props as LocaleProps
+const t = useTranslations(locale, 'starter')
+const messages = getMessages(locale, 'starter')
+
+const conventionItems = messages.conventions.items as Array<{
+  what: string
+  convention: string
+  discovery: string
+}>
+const skillItems = messages.catalog.skills as Array<{
+  name: string
+  version: string
+  type: string
+  description: string
+}>
+const ruleItems = messages.catalog.rules as Array<{name: string; description: string}>
+const specimenItems = messages.testing.specimens as Array<{code: string; description: string}>
+---
+
+<MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
+  <!-- Hero -->
+  <section class="px-6 py-20 text-center md:py-32">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="mb-6 text-4xl font-bold leading-tight tracking-tight text-steel-900 md:text-5xl dark:text-steel-100">
+        {t('hero.headline')}
+      </h1>
+      <p class="mx-auto mb-6 max-w-2xl text-lg text-steel-500 dark:text-steel-300">
+        {t('hero.subheadline')}
+        <br class="hidden md:inline" />
+        {t('hero.subheadline2')}
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="https://github.com/crucibledx/forge-skills-starter"
+          class="rounded-lg bg-molten-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-molten-700"
+        >
+          {t('hero.ctaPrimary')}
+        </a>
+        <a
+          href="/starter/overview"
+          class="rounded-lg border border-steel-300 px-6 py-3 text-sm font-semibold text-steel-700 transition-colors hover:border-molten-500 hover:text-molten-500 dark:border-steel-600 dark:text-steel-300 dark:hover:border-molten-400 dark:hover:text-molten-400"
+        >
+          {t('hero.ctaSecondary')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Convention Over Configuration -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('conventions.heading')}
+      </h2>
+      <p class="mb-8 text-center text-steel-500 dark:text-steel-400">
+        {t('conventions.description')}
+      </p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-steel-200 dark:border-steel-700">
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('conventions.thWhat')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('conventions.thConvention')}</th
+              >
+              <th class="py-3 font-semibold text-steel-900 dark:text-steel-100">{t('conventions.thDiscovery')}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-steel-100 dark:divide-steel-800">
+            {
+              conventionItems.map((item) => (
+                <tr>
+                  <td class="py-2.5 pr-4 font-medium text-steel-900 dark:text-steel-100">{item.what}</td>
+                  <td class="py-2.5 pr-4 font-mono text-xs text-steel-500 dark:text-steel-400">{item.convention}</td>
+                  <td class="py-2.5 text-steel-500 dark:text-steel-400">{item.discovery}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Lifecycle Diagram -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('lifecycle.heading')}</h2>
+      <p class="mb-8 text-center text-steel-500 dark:text-steel-400">
+        {t('lifecycle.description')}
+      </p>
+      <div
+        class="overflow-x-auto rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800"
+      >
+        <img
+          src="/diagrams/resources-platform-flow.svg"
+          alt={t('lifecycle.diagramAlt')}
+          class="mx-auto max-w-full dark:invert dark:hue-rotate-180"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- One Orchestrator, Three Phases -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('orchestrator.heading')}
+      </h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div
+          class="rounded-lg border border-steel-200 bg-white p-5 text-center dark:border-steel-700 dark:bg-steel-800"
+        >
+          <div class="mb-3 text-2xl">{t('orchestrator.design.icon')}</div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('orchestrator.design.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('orchestrator.design.description')}
+          </p>
+        </div>
+        <div
+          class="rounded-lg border border-steel-200 bg-white p-5 text-center dark:border-steel-700 dark:bg-steel-800"
+        >
+          <div class="mb-3 text-2xl">{t('orchestrator.develop.icon')}</div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('orchestrator.develop.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('orchestrator.develop.description')}
+          </p>
+        </div>
+        <div
+          class="rounded-lg border border-steel-200 bg-white p-5 text-center dark:border-steel-700 dark:bg-steel-800"
+        >
+          <div class="mb-3 text-2xl">{t('orchestrator.test.icon')}</div>
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('orchestrator.test.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">{t('orchestrator.test.description')}</p>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-sm text-steel-400 dark:text-steel-500" set:html={t('orchestrator.footer')} />
+    </div>
+  </section>
+
+  <!-- Resource Catalog -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('catalog.heading')}</h2>
+
+      <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-steel-500 dark:text-steel-400">
+        {t('catalog.skillsHeading')}
+      </h3>
+      <div class="mb-8 overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-steel-200 dark:border-steel-700">
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('catalog.thSkill')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('catalog.thVersion')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('catalog.thType')}</th>
+              <th class="py-3 font-semibold text-steel-900 dark:text-steel-100">{t('catalog.thDescription')}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-steel-100 dark:divide-steel-800">
+            {
+              skillItems.map((item) => (
+                <tr>
+                  <td class="py-2.5 pr-4 font-mono text-molten-500 dark:text-molten-400">{item.name}</td>
+                  <td class="py-2.5 pr-4 text-steel-500 dark:text-steel-400">{item.version}</td>
+                  <td class="py-2.5 pr-4 text-steel-500 dark:text-steel-400">{item.type}</td>
+                  <td class="py-2.5 text-steel-500 dark:text-steel-400">{item.description}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mb-4 text-sm font-bold uppercase tracking-wider text-steel-500 dark:text-steel-400">
+        {t('catalog.rulesHeading')}
+      </h3>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {
+          ruleItems.map((item) => (
+            <div class="rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800">
+              <h4 class="mb-1 text-sm font-bold text-steel-900 dark:text-steel-100">{item.name}</h4>
+              <p class="text-xs text-steel-500 dark:text-steel-400">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing with Specimens -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('testing.heading')}</h2>
+      <p class="mb-8 text-center text-steel-500 dark:text-steel-400">
+        {t('testing.description')}
+      </p>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {
+          specimenItems.map((item) => (
+            <div class="rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800">
+              <code class="text-xs font-mono text-molten-500 dark:text-molten-400">{item.code}</code>
+              <p class="mt-1 text-sm text-steel-500 dark:text-steel-400">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-4 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('testing.footer')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Flexibility — Forge is optional -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('delivery.heading')}
+      </h2>
+      <p class="mx-auto mb-8 max-w-2xl text-center text-steel-500 dark:text-steel-400">
+        {t('delivery.description')}
+      </p>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="rounded-lg border border-molten-200 bg-white p-5 dark:border-molten-900/50 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-molten-500 dark:text-molten-400">{t('delivery.forge.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('delivery.forge.description')}
+          </p>
+        </div>
+        <div class="rounded-lg border border-steel-200 bg-white p-5 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('delivery.submodules.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('delivery.submodules.description')}
+          </p>
+        </div>
+        <div class="rounded-lg border border-steel-200 bg-white p-5 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('delivery.custom.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400">
+            {t('delivery.custom.description')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Using with Forge -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mb-6 text-2xl font-bold text-steel-900 dark:text-steel-100">{t('withForge.heading')}</h2>
+      <p class="mb-6 text-steel-500 dark:text-steel-400">
+        {t('withForge.description')}
+      </p>
+      <div
+        class="inline-block rounded-lg bg-steel-900 px-6 py-4 text-left font-mono text-sm text-steel-100 dark:bg-steel-950"
+      >
+        <div><span class="text-steel-400">$</span> forge init</div>
+        <div class="text-steel-500"># → Select "git" source → paste your fork's URL</div>
+        <div class="mt-2"><span class="text-steel-400">$</span> forge sync</div>
+        <div class="text-steel-500"># → Skills placed for each AI tool automatically</div>
+      </div>
+    </div>
+  </section>
+</MarketingLayout>

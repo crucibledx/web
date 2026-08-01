@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import '@astrojs/starlight-tailwind';
+@import './tokens.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Inline code/strong styling for marketing pages (rendered via set:html from i18n JSON) */
+.marketing-content code:not([class]) {
+  @apply rounded bg-steel-100 px-1 py-0.5 text-xs font-mono dark:bg-steel-700;
+}
+.marketing-content strong:not([class]) {
+  @apply text-steel-900 dark:text-steel-100;
+}
+
+/* Invert SVG diagram colors in Starlight docs dark mode.
+   Requires SVGs exported without draw.io adaptive/dark mode. */
+[data-theme='dark'] .sl-markdown-content img[src$='.svg'] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@theme {
+  /* Starlight accent (molten) */
+  --color-accent-100: #ffd580;
+  --color-accent-200: #ffa940;
+  --color-accent-300: #ff8c26;
+  --color-accent-400: #ff6b1a;
+  --color-accent-500: #e84d00;
+  --color-accent-600: #c13800;
+  --color-accent-700: #a03000;
+  --color-accent-800: #7a1f00;
+  --color-accent-900: #5c1700;
+  --color-accent-950: #3d0f00;
+
+  /* Starlight gray (steel) */
+  --color-gray-100: #e2e8f0;
+  --color-gray-200: #cbd5e0;
+  --color-gray-300: #a0aec0;
+  --color-gray-400: #718096;
+  --color-gray-500: #4a5568;
+  --color-gray-600: #3d4a5c;
+  --color-gray-700: #2d3748;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #0d1117;
+}

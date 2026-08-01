@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "Forge CLI — Crucible",
+    "description": "AI dev environment in one command. Sync shared configs across Claude Code, Cursor, Windsurf, Copilot, and Cline."
+  },
+  "hero": {
+    "headline": "Configure once. Forget it exists.",
+    "subheadline": "Forge is a set-and-forget CLI. Run the wizard once, and your AI skills, rules, and workflows sync automatically across every tool and repo — forever.",
+    "ctaPrimary": "Install Forge →",
+    "ctaSecondary": "View Commands →",
+    "terminalDemo": "forge init → forge sync"
+  },
+  "setup": {
+    "heading": "Two minutes to set up. Zero maintenance.",
+    "global": {
+      "title": "Global setup (once per machine)",
+      "description": "Run <code>forge init --global</code> and point it at your team's shared resource repo. The wizard detects your AI tools and writes the config. That's it — every new project you open gets synced automatically."
+    },
+    "project": {
+      "title": "Per-project setup (once per repo)",
+      "description": "Need project-specific skills? Run <code>forge init</code> inside the repo. Same wizard, same simplicity. Once configured, forget about it — Forge keeps everything in sync."
+    },
+    "footer": "No YAML to hand-edit. No complex configs to learn. The wizard handles everything."
+  },
+  "source": {
+    "heading": "Best paired with an AI Resources Platform",
+    "description": "Forge pulls from any git repo. But for the best experience, we recommend using a structured {link} as your source — it gives you convention-over-configuration, versioned resources, automated testing, and a clear lifecycle from idea to delivery.",
+    "platformLink": "AI Resources Platform",
+    "note": "Forge works with any git source. The resources platform just makes it better."
+  },
+  "commands": {
+    "heading": "12 commands. Everything you need.",
+    "thCommand": "Command",
+    "thDescription": "What it does",
+    "items": [
+      {"cmd": "forge init", "desc": "Interactive wizard — detects AI tools, configures sources, writes config."},
+      {"cmd": "forge sync", "desc": "Fetches from all sources, resolves targets, places files for each assistant."},
+      {"cmd": "forge status", "desc": "Shows drift between last sync and current filesystem state."},
+      {"cmd": "forge health", "desc": "SLI dashboard — sync frequency, drift count, source reachability."},
+      {"cmd": "forge config", "desc": "Interactive config editor with section-based menu."},
+      {"cmd": "forge source list", "desc": "Shows configured sources with type, synced file counts."},
+      {"cmd": "forge source add", "desc": "Add a new source interactively."},
+      {"cmd": "forge source remove", "desc": "Remove a source with optional cleanup of synced files."},
+      {"cmd": "forge source edit", "desc": "Edit existing source configuration with pre-filled values."},
+      {"cmd": "forge scheduler", "desc": "Install/uninstall/status for OS-level auto-sync scheduling."},
+      {"cmd": "forge telemetry", "desc": "Shows telemetry status, config, and what's collected."},
+      {"cmd": "forge uninstall", "desc": "Removes .crucible directory, scheduler, and all synced files."}
+    ]
+  },
+  "assistants": {
+    "heading": "5 assistants. One config.",
+    "thAssistant": "Assistant",
+    "thPaths": "Config Paths",
+    "thTransforms": "Transforms",
+    "footer": "Adding a new assistant = one file. Zero command handler changes.",
+    "learnMore": "Learn more →",
+    "items": [
+      {
+        "name": "Claude Code",
+        "paths": ".claude/skills/, .claude/rules/, .claude/commands/",
+        "transform": "None (passthrough)"
+      },
+      {"name": "Cursor", "paths": ".cursor/rules/", "transform": ".md → .mdc + frontmatter injection"},
+      {
+        "name": "Windsurf",
+        "paths": ".windsurf/rules/, .windsurf/workflows/",
+        "transform": "Frontmatter injection only"
+      },
+      {
+        "name": "GitHub Copilot",
+        "paths": ".github/skills/, .github/instructions/",
+        "transform": ".md → .instructions.md + frontmatter"
+      },
+      {"name": "Cline", "paths": ".cline/skills/, .clinerules/", "transform": "None (passthrough)"}
+    ]
+  },
+  "features": {
+    "heading": "Built for real teams",
+    "items": [
+      {
+        "icon": "⚡",
+        "title": "Multi-source",
+        "description": "Parallel fetching via Promise.allSettled. Failed sources don't block others."
+      },
+      {
+        "icon": "🔀",
+        "title": "Conflict resolution",
+        "description": "Source + local conflict strategies: last-wins, first-wins, or error."
+      },
+      {
+        "icon": "💾",
+        "title": "Backup",
+        "description": "When remote-wins overwrites local changes, .bak copies are created automatically."
+      },
+      {
+        "icon": "🔐",
+        "title": "SHA-256 detection",
+        "description": "No unnecessary rewrites. Only writes when content actually changed."
+      },
+      {
+        "icon": "📋",
+        "title": "Dry-run",
+        "description": "Preview all changes without writing. See what would happen before it does."
+      },
+      {
+        "icon": "⏪",
+        "title": "Rollback",
+        "description": "On mutation failure, already-written files are rolled back. No partial state."
+      },
+      {
+        "icon": "⏰",
+        "title": "Scheduler",
+        "description": "Cross-platform auto-sync: launchd (macOS), crontab (Linux), schtasks (Windows)."
+      },
+      {
+        "icon": "📊",
+        "title": "Health dashboard",
+        "description": "SLI metrics: sync frequency, drift count, source reachability, active assistants."
+      }
+    ]
+  },
+  "layouts": {
+    "heading": "Three source layouts, auto-detected",
+    "canonical": {
+      "title": "Canonical",
+      "description": "Flat files organized as <code>skills/</code>, <code>rules/</code>, <code>workflows/</code> — distributed and transformed per assistant."
+    },
+    "preStructured": {
+      "title": "Pre-structured",
+      "description": "Contains assistant-specific directories (<code>.claude/</code>, <code>.cursor/</code>, etc.) — copied as-is without transforms."
+    },
+    "hybrid": {
+      "title": "Hybrid",
+      "description": "Mix of both — canonical files transformed and distributed; pre-structured files copied directly. Auto-detected by default."
+    }
+  },
+  "cta": {
+    "heading": "Ready to get started?",
+    "description": "Install Forge, run <code>forge init</code>, and sync your first config in under 2 minutes.",
+    "button": "Quick Start Guide →"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "title": "AI Resources Lifecycle Platform — Crucible",
+    "description": "Design, develop, test, and deliver AI agent skills, rules, and workflows."
+  },
+  "hero": {
+    "headline": "AI Resources Lifecycle Platform",
+    "subheadline": "Design, develop, test, and deliver AI agent skills, rules, and workflows.",
+    "subheadline2": "Fork this. Build resources. Deliver via Forge.",
+    "ctaPrimary": "Fork the Starter →",
+    "ctaSecondary": "Read the Docs →"
+  },
+  "conventions": {
+    "heading": "Convention over configuration",
+    "description": "Put a file in the right place — the platform discovers it. No config, no registration.",
+    "thWhat": "What",
+    "thConvention": "Convention",
+    "thDiscovery": "Discovered by",
+    "items": [
+      {"what": "Skill", "convention": "skills/<name>/SKILL.md", "discovery": "/create-resource, /test-resource, Forge"},
+      {"what": "Rule", "convention": "rules/<name>.md", "discovery": "/create-resource, Forge"},
+      {"what": "Workflow", "convention": "workflows/<name>.md", "discovery": "/create-resource, Forge"},
+      {"what": "Specimen", "convention": "orphan branch specimen/<lang>/<fw>", "discovery": "/test-resource"}
+    ]
+  },
+  "lifecycle": {
+    "heading": "The full lifecycle",
+    "description": "From idea to delivery — the platform guides every step.",
+    "diagramAlt": "AI Resource Lifecycle Platform — IDEA → DESIGN → DEVELOP → TEST → RELEASE → DELIVER"
+  },
+  "orchestrator": {
+    "heading": "One orchestrator, three phases",
+    "design": {
+      "icon": "📐",
+      "title": "/design-resource",
+      "description": "Creates design.md and architecture diagrams for the new resource."
+    },
+    "develop": {
+      "icon": "🔨",
+      "title": "/develop-resource",
+      "description": "Scaffolds and implements the resource from the design."
+    },
+    "test": {
+      "icon": "🧪",
+      "title": "/test-resource",
+      "description": "Type-aware testing against real project specimens."
+    },
+    "footer": "<code>/create-resource</code> orchestrates all three phases end-to-end."
+  },
+  "catalog": {
+    "heading": "Included resources",
+    "skillsHeading": "Skills",
+    "thSkill": "Skill",
+    "thVersion": "Version",
+    "thType": "Type",
+    "thDescription": "Description",
+    "skills": [
+      {
+        "name": "/drawio",
+        "version": "1.0.0",
+        "type": "utility",
+        "description": "Generate draw.io diagrams as native files with PNG/SVG/PDF export"
+      },
+      {
+        "name": "/detect-stack",
+        "version": "1.0.0",
+        "type": "utility",
+        "description": "Classify project type, language, framework, and build tools"
+      },
+      {
+        "name": "/review-pr",
+        "version": "1.0.0",
+        "type": "orchestrator",
+        "description": "Review PR changes for quality, style, and correctness"
+      },
+      {
+        "name": "/document",
+        "version": "1.0.0",
+        "type": "orchestrator",
+        "description": "Generate project documentation with architecture diagrams"
+      }
+    ],
+    "rulesHeading": "Rules & Workflows",
+    "rules": [
+      {"name": "drawio-conventions", "description": "Standards for clean, readable draw.io diagrams"},
+      {"name": "code-style", "description": "General coding conventions and best practices"},
+      {"name": "documentation-standards", "description": "Documentation quality and completeness requirements"},
+      {"name": "document-project", "description": "Workflow: end-to-end documentation using /document skill"}
+    ]
+  },
+  "testing": {
+    "heading": "Test against real projects",
+    "description": "Specimens are real project snapshots on orphan branches. Any skill that operates on source code can use them.",
+    "specimens": [
+      {"code": "specimen/python/fastapi", "description": "FastAPI REST API service snapshot"},
+      {"code": "specimen/ts/express", "description": "Express.js TypeScript REST API snapshot"}
+    ],
+    "footer": "Delta branches add targeted changes with intentional findings for testing edge cases."
+  },
+  "delivery": {
+    "heading": "Flexible delivery. Use what works for you.",
+    "description": "The platform is an abstract idea that structures your AI resources and helps you manage them. That's it. How you deliver them to developers is entirely up to you.",
+    "forge": {
+      "title": "Forge CLI",
+      "description": "Recommended. Set-and-forget sync with auto-transforms for every AI tool. The easiest path."
+    },
+    "submodules": {
+      "title": "Git submodules",
+      "description": "Classic approach. Add the platform repo as a submodule and symlink what you need."
+    },
+    "custom": {
+      "title": "Custom tooling",
+      "description": "Already have a delivery mechanism? The platform's directory conventions work with any tool that can read a git repo."
+    }
+  },
+  "withForge": {
+    "heading": "Best with Forge",
+    "description": "Fork the starter, build your team's skills, then deliver to every developer with Forge. Configure once, forget it exists."
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "title": "Ember — AI Observability — Crucible",
+    "description": "Cross-tool AI assistant observability. Your data never leaves your infrastructure."
+  },
+  "hero": {
+    "badge": "Coming Soon",
+    "headline": "See how your AI tools are actually used.",
+    "subheadline": "Cross-tool AI assistant observability. Skills invoked, tokens consumed, session quality — all pushed to <em>your</em> infrastructure. Crucible never sees the data."
+  },
+  "problem": {
+    "heading": "The enterprise visibility gap",
+    "items": [
+      {
+        "icon": "🔇",
+        "title": "No idea which skills are used",
+        "description": "You sync 20 skills to 50 developers. Which ones are actually invoked? Which are ignored? No way to know."
+      },
+      {
+        "icon": "💸",
+        "title": "No cost tracking",
+        "description": "Uber spent their entire 2026 AI budget in 4 months. How do you measure value per team, per repo, per assistant?"
+      },
+      {
+        "icon": "🔒",
+        "title": "Trust problem",
+        "description": "Any observability tool that phones home to a third party is dead on arrival in enterprise. Data must stay in your infra."
+      }
+    ]
+  },
+  "architecture": {
+    "heading": "Prometheus model for AI assistants",
+    "diagramAlt": "Ember Architecture — collector ingests from AI assistants and pushes to company backend",
+    "caption": "Crucible provides the collector. Company provides the destination. Zero data touches Crucible servers."
+  },
+  "loop": {
+    "heading": "The closed feedback loop",
+    "description": "Forge manages <strong>what</strong> configs/skills agents get. Ember measures <strong>how</strong> those configs/skills are actually used. Together: configure → measure → optimize.",
+    "steps": ["Author skills", "Forge syncs", "Developers use", "Ember measures", "Optimize"]
+  },
+  "value": {
+    "heading": "Enterprise value",
+    "items": [
+      {
+        "icon": "📈",
+        "title": "For Engineering Managers",
+        "description": "\"How much are we spending on AI per team? Which teams are actually using the tools we paid for? What's the ROI?\""
+      },
+      {
+        "icon": "⚙️",
+        "title": "For Platform Teams",
+        "description": "\"Which skills are used? Which should we deprecate? Are developers accepting or reverting AI suggestions?\""
+      },
+      {
+        "icon": "🛡️",
+        "title": "For Compliance & Security",
+        "description": "\"Audit trail of AI usage. Proof that guardrails are applied. Data stays in our infrastructure, zero third-party exposure.\""
+      }
+    ]
+  },
+  "otel": {
+    "heading": "Built on top of existing telemetry",
+    "description": "Claude Code already ships with built-in OTEL instrumentation — skill activation events, token usage, session traces. <strong>Ember doesn't replace that. It builds on it.</strong>",
+    "claudeCode": {
+      "title": "Claude Code OTEL",
+      "description": "Native <code>claude_code.skill_activated</code> events, token usage, session traces. One tool, one format."
+    },
+    "ember": {
+      "title": "+ Ember",
+      "description": "Versioned skill metrics, cross-tool normalization (Cursor, Windsurf, Copilot too), unified dashboards, and flexible routing to any backend."
+    },
+    "combined": {
+      "title": "= Complete picture",
+      "description": "One collector that ingests telemetry from all vendors, enriches it with version info and team context, and pushes to your infra."
+    },
+    "footer": "Ember is not an alternative to vendor telemetry. It's the unified layer that makes all of it useful."
+  },
+  "dashboard": {
+    "heading": "What you'll see",
+    "skills": {
+      "title": "SKILL INVOCATIONS — LAST 7 DAYS"
+    },
+    "tokens": {
+      "title": "TOKEN USAGE BY TEAM",
+      "estimatedCost": "Estimated cost: <span>{cost}</span> / week across 3 teams"
+    },
+    "distribution": {
+      "title": "ASSISTANT DISTRIBUTION"
+    },
+    "versions": {
+      "title": "SKILL VERSION ADOPTION"
+    },
+    "caption": "Mock data — illustrates what Ember dashboards will provide. Push to Grafana, DataDog, or any OTLP-compatible backend."
+  },
+  "landscape": {
+    "heading": "How Ember fits the landscape",
+    "thTool": "Tool",
+    "thDoes": "What it does",
+    "thRelationship": "Ember's relationship",
+    "footer": "Ember doesn't compete with any of these. It's the unified collector that covers all AI assistants and pushes to your choice of backend.",
+    "items": [
+      {
+        "tool": "Claude Code OTEL",
+        "does": "Native skill_activated events, token traces",
+        "relationship": "Ember ingests this + adds versioning, cross-tool view"
+      },
+      {
+        "tool": "Langfuse",
+        "does": "LLM app tracing (API calls)",
+        "relationship": "Different scope — Langfuse tracks app LLM calls, Ember tracks developer AI usage"
+      },
+      {
+        "tool": "Helicone",
+        "does": "LLM proxy with logging",
+        "relationship": "Requires routing through their proxy. Enterprise won't do this."
+      },
+      {
+        "tool": "DataDog LLM Obs",
+        "does": "LLM monitoring",
+        "relationship": "Ember can push to DataDog as a destination"
+      },
+      {
+        "tool": "OpenTelemetry",
+        "does": "General observability standard",
+        "relationship": "Protocol, not product. Ember exports OTLP natively."
+      }
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+---
+import MarketingLayout from '../../layouts/MarketingLayout.astro'
+import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
+import type {LocaleProps} from '../../i18n'
+
+export const getStaticPaths = getLocalePaths
+
+const {locale} = Astro.props as LocaleProps
+const t = useTranslations(locale, 'about')
+const messages = getMessages(locale, 'about')
+
+const metaphorItems = messages.metaphor.items as Array<{name: string; description: string}>
+const principleItems = messages.principles.items as Array<{title: string; description: string}>
+const roadmapItems = messages.roadmap.items as Array<{
+  name: string
+  type: string
+  purpose: string
+  status: string
+}>
+
+const statusClasses: Record<string, string> = {
+  Shipped: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+  Researched: 'bg-molten-100 text-molten-700 dark:bg-molten-900/30 dark:text-molten-400',
+  Designed: 'bg-steel-100 text-steel-500 dark:bg-steel-800 dark:text-steel-400',
+}
+---
+
+<MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
+  <!-- Hero -->
+  <section class="px-6 py-20 text-center md:py-28">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="mb-6 text-4xl font-bold leading-tight tracking-tight text-steel-900 md:text-5xl dark:text-steel-100">
+        {t('hero.headline')}
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-steel-500 dark:text-steel-300">
+        {t('hero.subheadline')}
+      </p>
+    </div>
+  </section>
+
+  <!-- The Metallurgy Metaphor -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('metaphor.heading')}</h2>
+      <p class="mb-8 text-center text-steel-500 dark:text-steel-400">
+        {t('metaphor.description')}
+      </p>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {
+          metaphorItems.map((item) => (
+            <div class="rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800">
+              <span class="text-lg font-bold text-molten-500 dark:text-molten-400">{item.name}</span>
+              <span class="ml-2 text-sm text-steel-500 dark:text-steel-400">{item.description}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('principles.heading')}</h2>
+      <div class="space-y-6">
+        {
+          principleItems.map((item, i) => (
+            <div class="flex gap-4">
+              <span class="shrink-0 text-lg font-bold text-molten-500 dark:text-molten-400">{i + 1}.</span>
+              <div>
+                <h3 class="font-bold text-steel-900 dark:text-steel-100">{item.title}</h3>
+                <p class="text-sm text-steel-500 dark:text-steel-400">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Roadmap -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('roadmap.heading')}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-steel-200 dark:border-steel-700">
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('roadmap.thProduct')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('roadmap.thType')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('roadmap.thPurpose')}</th>
+              <th class="py-3 font-semibold text-steel-900 dark:text-steel-100">{t('roadmap.thStatus')}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-steel-100 dark:divide-steel-800">
+            {
+              roadmapItems.map((item) => (
+                <tr>
+                  <td class="py-2.5 pr-4 font-bold text-steel-900 dark:text-steel-100">{item.name}</td>
+                  <td class="py-2.5 pr-4 text-steel-500 dark:text-steel-400">{item.type}</td>
+                  <td class="py-2.5 pr-4 text-steel-500 dark:text-steel-400">{item.purpose}</td>
+                  <td class="py-2.5">
+                    <span
+                      class={`rounded-full px-2 py-0.5 text-xs font-medium ${statusClasses[item.status] || statusClasses.Designed}`}
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 text-center text-sm text-steel-400 dark:text-steel-500">
+        <span set:html={t('roadmap.footer').split('{link}')[0]} /><a
+          href="/platform/architecture"
+          class="text-molten-500 hover:text-molten-700 dark:text-molten-400">{t('roadmap.architectureLink')}</a
+        ><span set:html={t('roadmap.footer').split('{link}')[1]} />
+      </p>
+    </div>
+  </section>
+
+  <!-- Architecture Overview -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('architecture.heading')}
+      </h2>
+      <p class="mx-auto mb-8 max-w-2xl text-center text-steel-500 dark:text-steel-400">
+        {t('architecture.description')}
+      </p>
+      <div
+        class="overflow-x-auto rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800"
+      >
+        <img
+          src="/diagrams/crucible-ecosystem.svg"
+          alt={t('architecture.diagramAlt')}
+          class="mx-auto max-w-full dark:invert dark:hue-rotate-180"
+          loading="lazy"
+        />
+      </div>
+      <p class="mt-4 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('architecture.caption')}
+      </p>
+    </div>
+  </section>
+</MarketingLayout>

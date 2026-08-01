@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Crucible — DX Infrastructure Platform",
+    "description": "Sync shared AI assistant configs across tools and repos with one command."
+  },
+  "hero": {
+    "headline": "Your AI assistants don't talk to each other.",
+    "subheadline": "Crucible fixes that. Sync shared AI configs across tools and repos with one command.",
+    "ctaPrimary": "Get Started →",
+    "ctaSecondary": "GitHub →",
+    "terminalDemo": "forge sync"
+  },
+  "problem": {
+    "heading": "The problem is real",
+    "scattered": {
+      "icon": "📂",
+      "title": "10 repos, 5 AI tools, 50 config files",
+      "description": "Every repo has its own Claude rules, Cursor configs, Copilot instructions. Scattered, duplicated, drifting."
+    },
+    "drift": {
+      "icon": "🔄",
+      "title": "Copy-paste. Drift. Outdated rules.",
+      "description": "Someone updates a skill in one repo. The other 9 repos are still on the old version. Nobody notices."
+    },
+    "visibility": {
+      "icon": "🔍",
+      "title": "Nobody knows what's actually being used.",
+      "description": "Which skills are active? Which are stale? No cross-tool visibility, no usage metrics, no feedback loop."
+    }
+  },
+  "howItWorks": {
+    "heading": "How it works",
+    "step1": {
+      "title": "Define skills in one repo",
+      "description": "Write AI skills, rules, and workflows in a central source repo. Convention-over-configuration — just put files in the right folder."
+    },
+    "step2": {
+      "title": "forge sync distributes them",
+      "description": "One command fetches from your sources and places files for each AI tool in the right location, in the right format."
+    },
+    "step3": {
+      "title": "Every tool gets the right config",
+      "description": "Automatic transforms: .md → .mdc for Cursor, .md → .instructions.md for Copilot. SHA-256 change detection. No unnecessary rewrites."
+    }
+  },
+  "tools": {
+    "heading": "Supports your favorite AI tools",
+    "more": "More coming. It's pluggable."
+  },
+  "ecosystem": {
+    "heading": "The Crucible ecosystem",
+    "forge": {
+      "name": "Forge CLI",
+      "description": "Sync shared AI configs (skills, rules, workflows) across Claude Code, Cursor, Windsurf, Copilot, and Cline.",
+      "badge": "Shipped"
+    },
+    "starter": {
+      "name": "Skills Platform",
+      "description": "Build, test, and deliver AI agent resources. Convention-over-configuration template for teams.",
+      "badge": "Shipped"
+    },
+    "ember": {
+      "name": "Ember",
+      "description": "Cross-tool AI assistant observability. See how your skills are actually used. Your data never leaves your infrastructure.",
+      "badge": "Coming Soon"
+    },
+    "more": "More products on the {link} — Smelt, Anvil, Lathe, Foundry, Cast.",
+    "roadmapLink": "roadmap"
+  }
+}

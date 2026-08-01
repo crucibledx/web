@@ -1,0 +1,122 @@
+---
+import {defaultLocale, useTranslations} from '../i18n'
+import type {Locale} from '../i18n'
+
+interface Props {
+  locale?: Locale
+}
+
+const {locale = defaultLocale} = Astro.props
+const t = useTranslations(locale, 'common')
+const prefix = locale === defaultLocale ? '' : `/${locale}`
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="border-t border-steel-200 bg-steel-50 dark:border-steel-800 dark:bg-steel-900">
+  <div class="mx-auto max-w-7xl px-6 py-12">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+      <div>
+        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-steel-900 dark:text-steel-100">
+          {t('footer.products')}
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href={`${prefix}/forge`}
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.forgeCli')}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${prefix}/starter`}
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.skillsPlatform')}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${prefix}/ember`}
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.ember')}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-steel-900 dark:text-steel-100">
+          {t('footer.documentation')}
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/getting-started/installation"
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.gettingStarted')}</a
+            >
+          </li>
+          <li>
+            <a
+              href="/forge/commands"
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.forgeCommands')}</a
+            >
+          </li>
+          <li>
+            <a
+              href="/platform/products"
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.platformOverview')}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-steel-900 dark:text-steel-100">
+          {t('footer.community')}
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="https://github.com/crucibledx"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.github')}</a
+            >
+          </li>
+          <li>
+            <a
+              href={`${prefix}/about`}
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >{t('footer.about')}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-3 text-sm font-bold uppercase tracking-wider text-steel-900 dark:text-steel-100">
+          {t('footer.contact')}
+        </h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="mailto:hello@crucibledx.dev"
+              class="text-sm text-steel-500 hover:text-molten-500 dark:text-steel-400 dark:hover:text-molten-400"
+              >hello@crucibledx.dev</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-10 border-t border-steel-200 pt-6 text-center text-sm text-steel-400 dark:border-steel-700 dark:text-steel-500"
+    >
+      {t('footer.copyright').replace('{year}', String(currentYear))}
+    </div>
+  </div>
+</footer>

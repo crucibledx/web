@@ -1,0 +1,327 @@
+---
+import MarketingLayout from '../../layouts/MarketingLayout.astro'
+import FeatureGrid from '../../components/FeatureGrid.astro'
+import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
+import type {LocaleProps} from '../../i18n'
+
+export const getStaticPaths = getLocalePaths
+
+const {locale} = Astro.props as LocaleProps
+const t = useTranslations(locale, 'ember')
+const messages = getMessages(locale, 'ember')
+
+const loopSteps = messages.loop.steps as string[]
+const landscapeItems = messages.landscape.items as Array<{
+  tool: string
+  does: string
+  relationship: string
+}>
+---
+
+<MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
+  <!-- Hero -->
+  <section class="px-6 py-20 text-center md:py-32">
+    <div class="mx-auto max-w-4xl">
+      <span
+        class="mb-6 inline-block rounded-full bg-molten-100 px-4 py-1.5 text-sm font-medium text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
+      >
+        {t('hero.badge')}
+      </span>
+      <h1 class="mb-6 text-4xl font-bold leading-tight tracking-tight text-steel-900 md:text-5xl dark:text-steel-100">
+        {t('hero.headline')}
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-steel-500 dark:text-steel-300" set:html={t('hero.subheadline')} />
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('problem.heading')}
+      </h2>
+      <FeatureGrid
+        columns={3}
+        features={messages.problem.items as Array<{icon: string; title: string; description: string}>}
+      />
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('architecture.heading')}
+      </h2>
+      <div
+        class="overflow-x-auto rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800"
+      >
+        <img
+          src="/diagrams/ember-architecture.svg"
+          alt={t('architecture.diagramAlt')}
+          class="mx-auto max-w-full dark:invert dark:hue-rotate-180"
+          loading="lazy"
+        />
+      </div>
+      <p class="mt-4 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('architecture.caption')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Forge + Ember Loop -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="mb-6 text-2xl font-bold text-steel-900 dark:text-steel-100">{t('loop.heading')}</h2>
+      <p class="mb-8 text-steel-500 dark:text-steel-400" set:html={t('loop.description')} />
+      <div class="inline-flex flex-wrap items-center justify-center gap-3 text-sm font-medium">
+        {
+          loopSteps.map((step, i, arr) => (
+            <>
+              <span class="rounded-lg bg-molten-100 px-3 py-1.5 text-molten-700 dark:bg-molten-900/30 dark:text-molten-400">
+                {step}
+              </span>
+              {i < arr.length - 1 && <span class="text-steel-300 dark:text-steel-600">→</span>}
+            </>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Value -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('value.heading')}</h2>
+      <FeatureGrid
+        columns={3}
+        features={messages.value.items as Array<{icon: string; title: string; description: string}>}
+      />
+    </div>
+  </section>
+
+  <!-- Claude Code OTEL — Complementary, Not Competitive -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-6 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('otel.heading')}
+      </h2>
+      <p
+        class="mx-auto mb-8 max-w-2xl text-center text-steel-500 dark:text-steel-400"
+        set:html={t('otel.description')}
+      />
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="rounded-lg border border-steel-200 bg-white p-5 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('otel.claudeCode.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400" set:html={t('otel.claudeCode.description')} />
+        </div>
+        <div class="rounded-lg border border-steel-200 bg-white p-5 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-molten-500 dark:text-molten-400">{t('otel.ember.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400" set:html={t('otel.ember.description')} />
+        </div>
+        <div class="rounded-lg border border-steel-200 bg-white p-5 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('otel.combined.title')}</h3>
+          <p class="text-sm text-steel-500 dark:text-steel-400" set:html={t('otel.combined.description')} />
+        </div>
+      </div>
+      <p class="mt-6 text-center text-sm text-steel-400 dark:text-steel-500">
+        {t('otel.footer')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Mock Dashboard -->
+  <section class="px-6 py-16">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('dashboard.heading')}</h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <!-- Skills usage chart -->
+        <div class="rounded-xl border border-steel-200 bg-white p-6 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-4 text-sm font-semibold text-steel-500 dark:text-steel-400">{t('dashboard.skills.title')}</h3>
+          <div class="space-y-3">
+            <div>
+              <div class="mb-1 flex justify-between text-xs">
+                <span class="text-steel-600 dark:text-steel-300">/study-java</span><span class="text-molten-500"
+                  >847</span
+                >
+              </div>
+              <div class="h-2 rounded-full bg-steel-100 dark:bg-steel-700">
+                <div class="h-2 rounded-full bg-molten-500" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-1 flex justify-between text-xs">
+                <span class="text-steel-600 dark:text-steel-300">/review-java</span><span class="text-molten-500"
+                  >623</span
+                >
+              </div>
+              <div class="h-2 rounded-full bg-steel-100 dark:bg-steel-700">
+                <div class="h-2 rounded-full bg-molten-400" style="width: 70%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-1 flex justify-between text-xs">
+                <span class="text-steel-600 dark:text-steel-300">/detect-project</span><span class="text-molten-500"
+                  >412</span
+                >
+              </div>
+              <div class="h-2 rounded-full bg-steel-100 dark:bg-steel-700">
+                <div class="h-2 rounded-full bg-molten-200" style="width: 46%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mb-1 flex justify-between text-xs">
+                <span class="text-steel-600 dark:text-steel-300">/design-resource</span><span class="text-molten-500"
+                  >89</span
+                >
+              </div>
+              <div class="h-2 rounded-full bg-steel-100 dark:bg-steel-700">
+                <div class="h-2 rounded-full bg-molten-100" style="width: 10%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tokens & cost -->
+        <div class="rounded-xl border border-steel-200 bg-white p-6 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-4 text-sm font-semibold text-steel-500 dark:text-steel-400">{t('dashboard.tokens.title')}</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Platform Team</span>
+              <div class="text-right">
+                <span class="text-lg font-bold text-steel-900 dark:text-steel-100">2.4M</span>
+                <span class="ml-1 text-xs text-steel-400">tokens</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Backend Team</span>
+              <div class="text-right">
+                <span class="text-lg font-bold text-steel-900 dark:text-steel-100">1.8M</span>
+                <span class="ml-1 text-xs text-steel-400">tokens</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Frontend Team</span>
+              <div class="text-right">
+                <span class="text-lg font-bold text-steel-900 dark:text-steel-100">960K</span>
+                <span class="ml-1 text-xs text-steel-400">tokens</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="mt-4 rounded-md bg-steel-50 px-3 py-2 text-xs text-steel-400 dark:bg-steel-900 dark:text-steel-500"
+          >
+            Estimated cost: <span class="font-medium text-steel-600 dark:text-steel-300">$342</span> / week across 3 teams
+          </div>
+        </div>
+
+        <!-- Tool distribution -->
+        <div class="rounded-xl border border-steel-200 bg-white p-6 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-4 text-sm font-semibold text-steel-500 dark:text-steel-400">
+            {t('dashboard.distribution.title')}
+          </h3>
+          <div class="flex items-end gap-3">
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-12 rounded-t bg-molten-500" style="height: 100px"></div>
+              <span class="text-xs text-steel-500 dark:text-steel-400">Claude</span>
+              <span class="text-xs font-medium text-steel-600 dark:text-steel-300">48%</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-12 rounded-t bg-molten-400" style="height: 70px"></div>
+              <span class="text-xs text-steel-500 dark:text-steel-400">Cursor</span>
+              <span class="text-xs font-medium text-steel-600 dark:text-steel-300">28%</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-12 rounded-t bg-molten-200" style="height: 35px"></div>
+              <span class="text-xs text-steel-500 dark:text-steel-400">Windsurf</span>
+              <span class="text-xs font-medium text-steel-600 dark:text-steel-300">14%</span>
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <div class="w-12 rounded-t bg-molten-100" style="height: 20px"></div>
+              <span class="text-xs text-steel-500 dark:text-steel-400">Copilot</span>
+              <span class="text-xs font-medium text-steel-600 dark:text-steel-300">10%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skill version tracking -->
+        <div class="rounded-xl border border-steel-200 bg-white p-6 dark:border-steel-700 dark:bg-steel-800">
+          <h3 class="mb-4 text-sm font-semibold text-steel-500 dark:text-steel-400">{t('dashboard.versions.title')}</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between rounded-md bg-steel-50 px-3 py-2 dark:bg-steel-900">
+              <div>
+                <span class="text-sm font-medium text-steel-600 dark:text-steel-300">/study-java</span>
+                <span
+                  class="ml-2 rounded bg-green-100 px-1.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-400"
+                  >v2.1.0</span
+                >
+              </div>
+              <span class="text-xs text-steel-400">92% adopted</span>
+            </div>
+            <div class="flex items-center justify-between rounded-md bg-steel-50 px-3 py-2 dark:bg-steel-900">
+              <div>
+                <span class="text-sm font-medium text-steel-600 dark:text-steel-300">/review-java</span>
+                <span
+                  class="ml-2 rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400"
+                  >v1.4.0</span
+                >
+              </div>
+              <span class="text-xs text-steel-400">67% adopted</span>
+            </div>
+            <div class="flex items-center justify-between rounded-md bg-steel-50 px-3 py-2 dark:bg-steel-900">
+              <div>
+                <span class="text-sm font-medium text-steel-600 dark:text-steel-300">/detect-project</span>
+                <span
+                  class="ml-2 rounded bg-red-100 px-1.5 py-0.5 text-xs font-medium text-red-700 dark:bg-red-900/30 dark:text-red-400"
+                  >v0.8.0</span
+                >
+              </div>
+              <span class="text-xs text-steel-400">41% adopted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-6 text-center text-xs text-steel-400 dark:text-steel-500">
+        {t('dashboard.caption')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Competitive Landscape -->
+  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('landscape.heading')}
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-steel-200 dark:border-steel-700">
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('landscape.thTool')}</th>
+              <th class="py-3 pr-4 font-semibold text-steel-900 dark:text-steel-100">{t('landscape.thDoes')}</th>
+              <th class="py-3 font-semibold text-steel-900 dark:text-steel-100">{t('landscape.thRelationship')}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-steel-100 dark:divide-steel-800">
+            {
+              landscapeItems.map((item, i) => (
+                <tr>
+                  <td class="py-2.5 pr-4 font-medium text-steel-900 dark:text-steel-100">{item.tool}</td>
+                  <td class="py-2.5 pr-4 text-steel-500 dark:text-steel-400">{item.does}</td>
+                  <td
+                    class={`py-2.5 ${i === 0 ? 'text-molten-500 dark:text-molten-400' : 'text-steel-500 dark:text-steel-400'}`}
+                  >
+                    {item.relationship}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 text-center text-sm font-medium text-molten-500 dark:text-molten-400">
+        {t('landscape.footer')}
+      </p>
+    </div>
+  </section>
+</MarketingLayout>
