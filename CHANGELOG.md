@@ -4,6 +4,25 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.3] — 2026-08-09
+
+### Changed
+
+- **Diagrams served from assets repo** — all diagram references now use raw GitHub URLs from [`crucibledx/assets`](https://github.com/crucibledx/assets) instead of local `public/diagrams/`
+- **Astro pages** — `ember.astro`, `about.astro`, `starter.astro` import from `src/lib/assets.ts` diagram map
+- **Markdown docs** — 7 content pages updated to raw GitHub URLs for diagram images
+- **CONTRIBUTING guide** — updated diagram workflow to reference assets repo
+
+### Added
+
+- **`src/lib/assets.ts`** — centralized asset URL helper with typed `diagrams`, `demos`, and `branding` maps
+
+### Removed
+
+- **`public/diagrams/`** — 9 local SVG copies replaced by remote references from assets repo
+
+---
+
 ## [0.1.2] — 2026-08-01
 
 ### Added

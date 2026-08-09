@@ -1,6 +1,7 @@
 ---
 import MarketingLayout from '../../layouts/MarketingLayout.astro'
 import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
+import {diagrams} from '../../lib/assets'
 import type {LocaleProps} from '../../i18n'
 
 export const getStaticPaths = getLocalePaths
@@ -100,7 +101,7 @@ const monorepoTeams = messages.monorepo.teams as Array<{name: string; descriptio
         class="overflow-x-auto rounded-lg border border-steel-200 bg-white p-4 dark:border-steel-700 dark:bg-steel-800"
       >
         <img
-          src="/diagrams/resources-platform-flow.svg"
+          src={diagrams.platformFlow}
           alt={t('lifecycle.diagramAlt')}
           class="mx-auto max-w-full dark:invert dark:hue-rotate-180"
           loading="lazy"
