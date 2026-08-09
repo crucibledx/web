@@ -46,7 +46,7 @@ Orchestrator skill that generates comprehensive project documentation including 
 
 These stay in the starter repo and are not delivered to consumers.
 
-![Meta-skills Architecture](https://github.com/crucibledx/assets/raw/main/platform/diagrams/meta-resources-architecture.svg)
+![Meta-skills Architecture](https://github.com/crucibledx/assets/raw/main/platform/diagrams/light/meta-resources-architecture.svg)
 
 | Meta-skill          | Description                                            |
 | ------------------- | ------------------------------------------------------ |

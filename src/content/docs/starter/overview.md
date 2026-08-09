@@ -11,7 +11,7 @@ An AI resource is any artifact that shapes how an AI assistant behaves — a ski
 
 The platform treats resources as first-class engineering artifacts with a full lifecycle: design → develop → test → release → deliver.
 
-![AI Resource Lifecycle Platform](https://github.com/crucibledx/assets/raw/main/platform/diagrams/platform-flow.svg)
+![AI Resource Lifecycle Platform](https://github.com/crucibledx/assets/raw/main/platform/diagrams/light/platform-flow.svg)
 
 ## How it works
 
@@ -38,7 +38,7 @@ Put a file in the right place — the platform discovers it. No config, no regis
 
 ## Platform structure
 
-![Platform Convention Map](https://github.com/crucibledx/assets/raw/main/platform/diagrams/platform-structure.svg)
+![Platform Convention Map](https://github.com/crucibledx/assets/raw/main/platform/diagrams/light/platform-structure.svg)
 
 ## Repository structure
 

@@ -3,11 +3,11 @@
  *
  * Usage in Astro pages:
  *   import { asset } from '@/lib/assets'
- *   <img src={asset('ember/diagrams/ember-architecture.svg')} />
+ *   <img src={asset('ember/diagrams/light/ember-architecture.svg')} />
  *
  * Usage in Markdown content:
  *   Use the raw URL directly — Markdown doesn't support imports.
- *   ![Alt](https://github.com/crucibledx/assets/raw/main/ember/diagrams/ember-architecture.svg)
+ *   ![Alt](https://github.com/crucibledx/assets/raw/main/ember/diagrams/light/ember-architecture.svg)
  */
 
 const ASSETS_BASE = 'https://github.com/crucibledx/assets/raw/main'
@@ -18,19 +18,19 @@ export const asset = (path: string): string => `${ASSETS_BASE}/${path}`
 /** Pre-mapped diagram paths for type-safe usage in Astro components. */
 export const diagrams = {
   // crucible
-  ecosystem: asset('crucible/diagrams/crucible-ecosystem.svg'),
-  productPhases: asset('crucible/diagrams/product-phases.svg'),
+  ecosystem: asset('crucible/diagrams/light/crucible-ecosystem.svg'),
+  productPhases: asset('crucible/diagrams/light/product-phases.svg'),
 
   // ember
-  emberArchitecture: asset('ember/diagrams/ember-architecture.svg'),
-  emberClosedLoop: asset('ember/diagrams/ember-closed-loop.svg'),
-  emberVisibilityGap: asset('ember/diagrams/ember-visibility-gap.svg'),
+  emberArchitecture: asset('ember/diagrams/light/ember-architecture.svg'),
+  emberClosedLoop: asset('ember/diagrams/light/ember-closed-loop.svg'),
+  emberVisibilityGap: asset('ember/diagrams/light/ember-visibility-gap.svg'),
 
   // platform
-  engineerJourney: asset('platform/diagrams/engineer-journey.svg'),
-  metaResourcesArchitecture: asset('platform/diagrams/meta-resources-architecture.svg'),
-  platformFlow: asset('platform/diagrams/platform-flow.svg'),
-  platformStructure: asset('platform/diagrams/platform-structure.svg'),
+  engineerJourney: asset('platform/diagrams/light/engineer-journey.svg'),
+  metaResourcesArchitecture: asset('platform/diagrams/light/meta-resources-architecture.svg'),
+  platformFlow: asset('platform/diagrams/light/platform-flow.svg'),
+  platformStructure: asset('platform/diagrams/light/platform-structure.svg'),
 } as const
 
 /** Pre-mapped demo GIF paths. */
