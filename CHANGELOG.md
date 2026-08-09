@@ -4,6 +4,16 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.5] — 2026-08-09
+
+### Added
+
+- **Demo showcase section** — "See it in action" on `/forge` page with all 3 terminal recordings in alternating layout
+- **"Easy Updates" demo** — drift detection + interactive config GIF
+- **"Power User" demo** — advanced source options, merge strategies, dry-run, health dashboard GIF
+
+---
+
 ## [0.1.4] — 2026-08-09
 
 ### Changed

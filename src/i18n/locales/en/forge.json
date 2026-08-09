@@ -28,6 +28,23 @@
     "platformLink": "AI Resources Platform",
     "note": "Forge works with any git source. The resources platform just makes it better."
   },
+  "demos": {
+    "heading": "See it in action",
+    "items": [
+      {
+        "title": "Set & Forget",
+        "description": "Run the wizard once. It detects your AI tools, adds a git source, enables auto-sync scheduling. Never think about it again."
+      },
+      {
+        "title": "Easy Updates",
+        "description": "Check status, spot drift, add a second source, sync everything. No YAML editing, no guessing — the wizard handles it."
+      },
+      {
+        "title": "Power User",
+        "description": "Fine-grained source control with subdirectories, include/exclude filters, merge strategies, dry-run preview, and health dashboard."
+      }
+    ]
+  },
   "commands": {
     "heading": "12 commands. Everything you need.",
     "thCommand": "Command",

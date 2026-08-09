@@ -1,6 +1,7 @@
 ---
 import MarketingLayout from '../../layouts/MarketingLayout.astro'
 import Hero from '../../components/Hero.astro'
+import TerminalPlaceholder from '../../components/TerminalPlaceholder.astro'
 import FeatureGrid from '../../components/FeatureGrid.astro'
 import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
 import {demos} from '../../lib/assets'
@@ -14,6 +15,13 @@ const messages = getMessages(locale, 'forge')
 
 const commandItems = messages.commands.items as Array<{cmd: string; desc: string}>
 const assistantItems = messages.assistants.items as Array<{name: string; paths: string; transform: string}>
+const demoItems = messages.demos.items as Array<{title: string; description: string}>
+
+const demoGifs = [
+  {dark: demos.forge.setAndForget('dark'), light: demos.forge.setAndForget('light')},
+  {dark: demos.forge.easyUpdates('dark'), light: demos.forge.easyUpdates('light')},
+  {dark: demos.forge.powerUser('dark'), light: demos.forge.powerUser('light')},
+]
 ---
 
 <MarketingLayout title={t('meta.title')} description={t('meta.description')} locale={locale}>
@@ -94,8 +102,37 @@ const assistantItems = messages.assistants.items as Array<{name: string; paths: 
     </div>
   </section>
 
-  <!-- Commands -->
+  <!-- Demos -->
   <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-12 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
+        {t('demos.heading')}
+      </h2>
+      <div class="space-y-16">
+        {
+          demoItems.map((item, i) => (
+            <div class={`flex flex-col gap-6 ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center`}>
+              <div class="flex-1">
+                <h3 class="mb-2 text-lg font-bold text-steel-900 dark:text-steel-100">{item.title}</h3>
+                <p class="text-sm text-steel-500 dark:text-steel-400">{item.description}</p>
+              </div>
+              <div class="w-full flex-[2]">
+                <TerminalPlaceholder
+                  title={item.title}
+                  darkSrc={demoGifs[i].dark}
+                  lightSrc={demoGifs[i].light}
+                  alt={`Forge CLI demo — ${item.title}`}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Commands -->
+  <section class="px-6 py-16">
     <div class="mx-auto max-w-7xl">
       <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">
         {t('commands.heading')}
