@@ -67,7 +67,7 @@ Marketing pages live in `src/pages/` as `.astro` files. Use existing layouts fro
 Diagrams are served from the [`crucibledx/assets`](https://github.com/crucibledx/assets) repo via raw GitHub URLs.
 
 - **In Astro pages:** import from `../../lib/assets` and use the `diagrams` map
-- **In Markdown content:** use the raw URL directly: `![Alt](https://raw.githubusercontent.com/crucibledx/assets/main/<path>)`
+- **In Markdown content:** use the raw URL directly: `![Alt](https://github.com/crucibledx/assets/raw/main/<path>)`
 
 To add or update a diagram, edit the source `.drawio` in the assets repo, export, optimize with SVGO, and commit.
 

@@ -4,6 +4,21 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.4] — 2026-08-09
+
+### Changed
+
+- **Terminal demos** — replaced placeholder component with actual dark/light theme-aware GIFs from assets repo
+- **`TerminalPlaceholder`** — now accepts `darkSrc`/`lightSrc` props and renders real GIFs with CSS-based theme switching
+- **Asset URLs** — switched from `raw.githubusercontent.com` to `github.com/.../raw/` pattern for Git LFS compatibility
+
+### Added
+
+- **Landing page hero GIF** — "set and forget" demo on home page (`/`)
+- **Forge page hero GIF** — "init and sync" demo on forge page (`/forge`)
+
+---
+
 ## [0.1.3] — 2026-08-09
 
 ### Changed

@@ -68,7 +68,7 @@ Default schedule: every 30 minutes. Configurable via cron expression in `forge.c
 
 ## The engineer's journey
 
-![Engineer Journey](https://raw.githubusercontent.com/crucibledx/assets/main/platform/diagrams/engineer-journey.svg)
+![Engineer Journey](https://github.com/crucibledx/assets/raw/main/platform/diagrams/engineer-journey.svg)
 
 ## What's next
 

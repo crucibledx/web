@@ -6,7 +6,7 @@ interface Props {
   subheadline: string
   ctaPrimary?: {label: string; href: string}
   ctaSecondary?: {label: string; href: string}
-  terminalDemo?: string
+  terminalDemo?: {title: string; darkSrc: string; lightSrc: string; alt?: string}
 }
 
 const {headline, subheadline, ctaPrimary, ctaSecondary, terminalDemo} = Astro.props
@@ -49,7 +49,12 @@ const {headline, subheadline, ctaPrimary, ctaSecondary, terminalDemo} = Astro.pr
     {
       terminalDemo && (
         <div class="mt-12">
-          <TerminalPlaceholder title={terminalDemo} />
+          <TerminalPlaceholder
+            title={terminalDemo.title}
+            darkSrc={terminalDemo.darkSrc}
+            lightSrc={terminalDemo.lightSrc}
+            alt={terminalDemo.alt}
+          />
         </div>
       )
     }

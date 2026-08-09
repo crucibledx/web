@@ -3,6 +3,7 @@ import MarketingLayout from '../../layouts/MarketingLayout.astro'
 import Hero from '../../components/Hero.astro'
 import FeatureGrid from '../../components/FeatureGrid.astro'
 import {getLocalePaths, getMessages, useTranslations} from '../../i18n'
+import {demos} from '../../lib/assets'
 import type {LocaleProps} from '../../i18n'
 
 export const getStaticPaths = getLocalePaths
@@ -21,7 +22,12 @@ const assistantItems = messages.assistants.items as Array<{name: string; paths: 
     subheadline={t('hero.subheadline')}
     ctaPrimary={{label: t('hero.ctaPrimary'), href: '/getting-started/installation'}}
     ctaSecondary={{label: t('hero.ctaSecondary'), href: '/forge/commands'}}
-    terminalDemo={t('hero.terminalDemo')}
+    terminalDemo={{
+      title: t('hero.terminalDemo'),
+      darkSrc: demos.forge.setAndForget('dark'),
+      lightSrc: demos.forge.setAndForget('light'),
+      alt: 'Forge CLI — init and sync demo',
+    }}
   />
 
   <!-- How it works — the "configure once" story -->

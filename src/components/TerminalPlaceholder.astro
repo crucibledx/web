@@ -1,12 +1,15 @@
 ---
 interface Props {
   title?: string
+  darkSrc: string
+  lightSrc: string
+  alt?: string
 }
 
-const {title = 'Terminal demo'} = Astro.props
+const {title = 'Terminal demo', darkSrc, lightSrc, alt = 'Terminal demo'} = Astro.props
 ---
 
-<div class="mx-auto max-w-2xl overflow-hidden rounded-lg border border-steel-200 shadow-lg dark:border-steel-700">
+<div class="mx-auto max-w-3xl overflow-hidden rounded-lg border border-steel-200 shadow-lg dark:border-steel-700">
   <div
     class="flex items-center gap-2 border-b border-steel-200 bg-steel-100 px-4 py-2.5 dark:border-steel-700 dark:bg-steel-800"
   >
@@ -17,7 +20,8 @@ const {title = 'Terminal demo'} = Astro.props
     </div>
     <span class="ml-2 text-xs font-medium text-steel-400 dark:text-steel-500">{title}</span>
   </div>
-  <div class="flex min-h-[200px] items-center justify-center bg-steel-900 p-8 dark:bg-steel-950">
-    <p class="font-mono text-sm text-steel-400">Terminal demo coming soon</p>
+  <div class="bg-steel-900 dark:bg-steel-950">
+    <img src={lightSrc} alt={alt} class="w-full dark:hidden" loading="lazy" />
+    <img src={darkSrc} alt={alt} class="hidden w-full dark:block" loading="lazy" />
   </div>
 </div>

@@ -21,7 +21,7 @@ Path C gives:
 
 ## Ecosystem structure
 
-![Crucible Ecosystem](https://raw.githubusercontent.com/crucibledx/assets/main/crucible/diagrams/crucible-ecosystem.svg)
+![Crucible Ecosystem](https://github.com/crucibledx/assets/raw/main/crucible/diagrams/crucible-ecosystem.svg)
 
 Each product is independent enough to be useful alone, but shares infrastructure for leverage.
 

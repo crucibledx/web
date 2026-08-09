@@ -49,9 +49,9 @@ Cross-tool AI assistant observability. Prometheus-model collector that instrumen
 
 Key insight: Forge manages **what** configs agents get. Ember measures **how** those configs are used. Together they form a closed feedback loop.
 
-![Visibility Gap — without Ember](https://raw.githubusercontent.com/crucibledx/assets/main/ember/diagrams/ember-visibility-gap.svg)
+![Visibility Gap — without Ember](https://github.com/crucibledx/assets/raw/main/ember/diagrams/ember-visibility-gap.svg)
 
-![Forge + Ember Closed Loop](https://raw.githubusercontent.com/crucibledx/assets/main/ember/diagrams/ember-closed-loop.svg)
+![Forge + Ember Closed Loop](https://github.com/crucibledx/assets/raw/main/ember/diagrams/ember-closed-loop.svg)
 
 [Learn more about Ember →](/ember)
 

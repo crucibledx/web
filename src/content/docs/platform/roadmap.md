@@ -5,7 +5,7 @@ description: Crucible platform development phases and timeline.
 
 ## Phased build sequence
 
-![Product Phases](https://raw.githubusercontent.com/crucibledx/assets/main/crucible/diagrams/product-phases.svg)
+![Product Phases](https://github.com/crucibledx/assets/raw/main/crucible/diagrams/product-phases.svg)
 
 ### Phase 1: Foundation (current)
 

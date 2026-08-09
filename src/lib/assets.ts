@@ -7,10 +7,10 @@
  *
  * Usage in Markdown content:
  *   Use the raw URL directly — Markdown doesn't support imports.
- *   ![Alt](https://raw.githubusercontent.com/crucibledx/assets/main/ember/diagrams/ember-architecture.svg)
+ *   ![Alt](https://github.com/crucibledx/assets/raw/main/ember/diagrams/ember-architecture.svg)
  */
 
-const ASSETS_BASE = 'https://raw.githubusercontent.com/crucibledx/assets/main'
+const ASSETS_BASE = 'https://github.com/crucibledx/assets/raw/main'
 
 /** Resolve a path in the crucibledx/assets repo to a raw GitHub URL. */
 export const asset = (path: string): string => `${ASSETS_BASE}/${path}`
