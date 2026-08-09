@@ -6,8 +6,11 @@ description: First sync in 2 minutes.
 ## 1. Install Forge
 
 ```bash
-bun add -g @crucibledx/forge-cli
+brew install crucibledx/tap/forge
+# or: bun add -g @crucibledx/forge-cli
 ```
+
+See [Installation](/getting-started/installation) for all methods (Scoop, npm, shell script, manual).
 
 ## 2. Initialize in your project
 

@@ -3,13 +3,37 @@ title: Installation
 description: Install Forge CLI and get started in 30 seconds.
 ---
 
-## Install via Bun
+## Homebrew (macOS / Linux)
+
+```bash
+brew install crucibledx/tap/forge
+```
+
+## Scoop (Windows)
+
+```powershell
+scoop bucket add crucibledx https://github.com/crucibledx/scoop-bucket
+scoop install forge
+```
+
+## npm / bun
 
 ```bash
 bun add -g @crucibledx/forge-cli
+# or: npm install -g @crucibledx/forge-cli
 ```
 
-This installs the `forge` binary globally. Single binary via `bun build --compile` — no runtime dependency on Bun after installation.
+## Shell script (macOS / Linux)
+
+Downloads the standalone binary — no runtime dependencies.
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/crucibledx/forge-cli/main/scripts/install.sh | sh
+```
+
+## Manual download
+
+Grab the binary for your platform from [GitHub Releases](https://github.com/crucibledx/forge-cli/releases), extract, and add to your `PATH`.
 
 ## Verify installation
 
