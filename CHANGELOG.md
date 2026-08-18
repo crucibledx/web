@@ -4,6 +4,18 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.6] — 2026-08-18
+
+### Added
+
+- **PostHog analytics** — `posthog-js` integration via `PostHogScript.astro` component, loaded on both marketing and Starlight docs pages
+- **Starlight Head override** — `StarlightHead.astro` extends default Head to inject PostHog on documentation pages
+- **Environment-driven config** — PostHog API key and host read from `PUBLIC_POSTHOG_KEY` / `PUBLIC_POSTHOG_HOST` build-time env vars; gracefully skipped when unset
+- **Deploy workflow** — passes PostHog env vars from GitHub secrets during build step
+- **`.env.example`** — documents required environment variables
+
+---
+
 ## [0.1.5] — 2026-08-09
 
 ### Added

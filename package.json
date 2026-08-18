@@ -1,6 +1,6 @@
 {
   "name": "@crucibledx/web",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Crucible DX platform website — marketing pages and Starlight documentation",
   "license": "MIT",
   "author": "Crucible <general@crucibledx.dev>",
@@ -36,7 +36,8 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.6",
     "astro-icon": "^1.1.5",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "^4.3.3",
+    "posthog-js": "^1.416.0"
   },
   "devDependencies": {
     "eslint": "^10.3.0",

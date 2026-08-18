@@ -23,6 +23,9 @@ jobs:
 
       - name: Build
         run: bun run build
+        env:
+          PUBLIC_POSTHOG_KEY: ${{ secrets.PUBLIC_POSTHOG_KEY }}
+          PUBLIC_POSTHOG_HOST: ${{ secrets.PUBLIC_POSTHOG_HOST }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4

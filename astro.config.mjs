@@ -27,6 +27,7 @@ export default defineConfig({
       social: [{label: 'GitHub', icon: 'github', href: 'https://github.com/crucibledx'}],
       components: {
         ThemeSelect: './src/components/ThemeToggle.astro',
+        Head: './src/components/StarlightHead.astro',
       },
       customCss: ['./src/styles/global.css'],
       sidebar: [

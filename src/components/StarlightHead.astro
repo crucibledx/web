@@ -1,0 +1,7 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro'
+import PostHogScript from './PostHogScript.astro'
+---
+
+<Default {...Astro.props}><slot /></Default>
+<PostHogScript />
