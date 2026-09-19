@@ -4,6 +4,17 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.7] — 2026-09-19
+
+### Changed
+
+- **Platform roadmap** — updated table formatting and milestone statuses
+- **Products page** — updated Ember tiers table formatting
+- **Forge page** — updated content and locale strings
+- **i18n locales** — updated `forge.json` and `ember.json` translation keys
+
+---
+
 ## [0.1.6] — 2026-08-18
 
 ### Added

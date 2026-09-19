@@ -229,6 +229,18 @@ const demoGifs = [
     </div>
   </section>
 
+  <!-- Compiler — Coming Next -->
+  <section class="bg-steel-50 px-6 py-16 dark:bg-steel-900">
+    <div class="mx-auto max-w-7xl">
+      <h2 class="mb-3 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('compiler.heading')}</h2>
+      <p class="mx-auto mb-10 max-w-2xl text-center text-steel-500 dark:text-steel-400" set:html={t('compiler.description')} />
+      <FeatureGrid
+        columns={3}
+        features={messages.compiler.items as Array<{icon: string; title: string; description: string}>}
+      />
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="px-6 py-16 text-center">
     <div class="mx-auto max-w-2xl">

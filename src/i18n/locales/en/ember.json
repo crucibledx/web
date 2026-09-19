@@ -6,20 +6,20 @@
   "hero": {
     "badge": "Coming Soon",
     "headline": "See how your AI tools are actually used.",
-    "subheadline": "Cross-tool AI assistant observability. Skills invoked, tokens consumed, session quality — all pushed to <em>your</em> infrastructure. Crucible never sees the data."
+    "subheadline": "Version-aware telemetry for AI coding environments. Which skills, which versions, which agents, which cost — from Forge compiler manifest to Grafana. Your data never leaves your infrastructure."
   },
   "problem": {
     "heading": "The enterprise visibility gap",
     "items": [
       {
         "icon": "🔇",
-        "title": "No idea which skills are used",
-        "description": "You sync 20 skills to 50 developers. Which ones are actually invoked? Which are ignored? No way to know."
+        "title": "No idea which skills are deployed",
+        "description": "You sync 20 skills to 50 developers. Which version is each developer running? Are all teams on the latest? No way to know."
       },
       {
         "icon": "💸",
-        "title": "No cost tracking",
-        "description": "Uber spent their entire 2026 AI budget in 4 months. How do you measure value per team, per repo, per assistant?"
+        "title": "No cost attribution",
+        "description": "Langfuse shows total LLM cost. But which skill caused it? Did skill v2.1 cost 40% more than v2.0? Nobody can answer this."
       },
       {
         "icon": "🔒",
@@ -60,20 +60,20 @@
   },
   "otel": {
     "heading": "Built on top of existing telemetry",
-    "description": "Claude Code already ships with built-in OTEL instrumentation — skill activation events, token usage, session traces. <strong>Ember doesn't replace that. It builds on it.</strong>",
+    "description": "Ember's data starts with the <strong>Forge compiler manifest</strong> — a JSON file emitted on every build that lists every skill, version, hash, agent target, and token estimate. No hooks needed. Then it grows with integrations.",
     "claudeCode": {
-      "title": "Claude Code OTEL",
-      "description": "Native <code>claude_code.skill_activated</code> events, token usage, session traces. One tool, one format."
+      "title": "Tier 1 — Forge Manifest",
+      "description": "Which skills, which versions, which agents, per project. Version drift detection across developers. Token budget utilization per agent."
     },
     "ember": {
-      "title": "+ Ember",
-      "description": "Versioned skill metrics, cross-tool normalization (Cursor, Windsurf, Copilot too), unified dashboards, and flexible routing to any backend."
+      "title": "Tier 2 — Langfuse / Helicone",
+      "description": "Correlate manifest data with actual LLM usage. Answer: 'skill X v2.1 costs 40% more tokens than v2.0.' Aggregate across tools."
     },
     "combined": {
-      "title": "= Complete picture",
-      "description": "One collector that ingests telemetry from all vendors, enriches it with version info and team context, and pushes to your infra."
+      "title": "Tier 3 — Agent OTEL",
+      "description": "Ingest native agent telemetry (Claude Code OTEL, Cline logs). Confirm which skills were actually activated, not just deployed."
     },
-    "footer": "Ember is not an alternative to vendor telemetry. It's the unified layer that makes all of it useful."
+    "footer": "Each tier adds a new data dimension without replacing the previous one. Start with manifest analytics, grow into full observability."
   },
   "dashboard": {
     "heading": "What you'll see",
@@ -100,29 +100,29 @@
     "footer": "Ember doesn't compete with any of these. It's the unified collector that covers all AI assistants and pushes to your choice of backend.",
     "items": [
       {
-        "tool": "Claude Code OTEL",
-        "does": "Native skill_activated events, token traces",
-        "relationship": "Ember ingests this + adds versioning, cross-tool view"
-      },
-      {
         "tool": "Langfuse",
-        "does": "LLM app tracing (API calls)",
-        "relationship": "Different scope — Langfuse tracks app LLM calls, Ember tracks developer AI usage"
+        "does": "LLM trace observability",
+        "relationship": "Ember imports Langfuse data + correlates with skill versions for cost attribution"
       },
       {
         "tool": "Helicone",
-        "does": "LLM proxy with logging",
-        "relationship": "Requires routing through their proxy. Enterprise won't do this."
+        "does": "LLM proxy with logging and caching",
+        "relationship": "Ember enriches Helicone logs with skill-version context"
+      },
+      {
+        "tool": "Claude Code OTEL",
+        "does": "Native skill_activated events, token traces",
+        "relationship": "Ember ingests + adds versioning, cross-tool normalization"
       },
       {
         "tool": "DataDog LLM Obs",
-        "does": "LLM monitoring",
-        "relationship": "Ember can push to DataDog as a destination"
+        "does": "Enterprise LLM monitoring",
+        "relationship": "Ember pushes OTLP metrics with skill-version dimensions to DataDog"
       },
       {
-        "tool": "OpenTelemetry",
-        "does": "General observability standard",
-        "relationship": "Protocol, not product. Ember exports OTLP natively."
+        "tool": "Grafana",
+        "does": "Open-source dashboarding",
+        "relationship": "Ember ships a pre-built Grafana dashboard pack — import and go"
       }
     ]
   }

@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Forge CLI — Crucible",
-    "description": "AI dev environment in one command. Sync shared configs across Claude Code, Cursor, Windsurf, Copilot, and Cline."
+    "description": "AI environment context compiler. Sync, compile, and optimize shared skills across Claude Code, Cursor, Windsurf, Copilot, and Cline."
   },
   "hero": {
-    "headline": "Configure once. Forget it exists.",
-    "subheadline": "Forge is a set-and-forget CLI. Run the wizard once, and your AI skills, rules, and workflows sync automatically across every tool and repo — forever.",
+    "headline": "Compile your AI environment.",
+    "subheadline": "Forge syncs AI skills across every tool today. Soon it becomes a context compiler — dependency resolution, tree-shaking, per-agent optimization. Think Vite, but for AI agents.",
     "ctaPrimary": "Install Forge →",
     "ctaSecondary": "View Commands →",
     "terminalDemo": "forge init → forge sync"
@@ -151,9 +151,45 @@
       "description": "Mix of both — canonical files transformed and distributed; pre-structured files copied directly. Auto-detected by default."
     }
   },
+  "compiler": {
+    "heading": "Coming next: the context compiler",
+    "description": "Forge v0.7 evolves from file sync to context compilation. Other tools install files. Forge will <strong>compile</strong> your AI environment.",
+    "items": [
+      {
+        "icon": "🌳",
+        "title": "Dependency graph",
+        "description": "Skills declare dependencies via frontmatter. Forge resolves the full DAG, detects cycles, and orders output correctly."
+      },
+      {
+        "icon": "✂️",
+        "title": "Tree-shaking",
+        "description": "Java project? Python skills are automatically excluded. Forge detects project context from marker files and prunes irrelevant skills."
+      },
+      {
+        "icon": "🎯",
+        "title": "Per-agent optimization",
+        "description": "Claude Code gets priority-ordered individual files. Cursor gets merged rule files. Each agent gets skills in its optimal format."
+      },
+      {
+        "icon": "📊",
+        "title": "Token budgeting",
+        "description": "Set per-agent context limits. When total exceeds budget, lowest-priority skills are dropped first. Dependencies are always protected."
+      },
+      {
+        "icon": "📦",
+        "title": "Build manifest",
+        "description": "Every compile emits a manifest — skill IDs, versions, hashes, agent targets, token estimates. This is Ember's data source."
+      },
+      {
+        "icon": "🌐",
+        "title": "Smithery integration",
+        "description": "Pull skills from agentskills.io as a source. Their 25k-star skill ecosystem becomes compiler input."
+      }
+    ]
+  },
   "cta": {
     "heading": "Ready to get started?",
-    "description": "Install Forge, run <code>forge init</code>, and sync your first config in under 2 minutes.",
+    "description": "Install Forge, run <code>forge init</code>, and sync your first config in under 2 minutes. The compiler features are coming in v0.7.",
     "button": "Quick Start Guide →"
   }
 }
