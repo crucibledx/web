@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "Forge CLI — Crucible",
-    "description": "AI environment context compiler. Sync, compile, and optimize shared skills across Claude Code, Cursor, Windsurf, Copilot, and Cline."
+    "description": "Forge — AI environment sync tool becoming the Harness Compiler. Distribute shared skills across Claude Code, Cursor, Windsurf, Copilot, and Cline."
   },
   "hero": {
-    "headline": "Compile your AI environment.",
-    "subheadline": "Forge syncs AI skills across every tool today. Soon it becomes a context compiler — dependency resolution, tree-shaking, per-agent optimization. Think Vite, but for AI agents.",
+    "headline": "One source of truth for every AI tool.",
+    "subheadline": "Today, Forge is a dead-simple sync engine — point it at a repo, it distributes skills to Claude Code, Cursor, Windsurf, Copilot, and Cline in the right format. But that's just the foundation. Forge is becoming the Harness Compiler — same CLI, new brain: dependency graphs, tree-shaking, token budgets, per-agent optimization. Think Vite, but for AI agents.",
     "ctaPrimary": "Install Forge →",
     "ctaSecondary": "View Commands →",
     "terminalDemo": "forge init → forge sync"
@@ -152,8 +152,8 @@
     }
   },
   "compiler": {
-    "heading": "Coming next: the context compiler",
-    "description": "Forge v0.7 evolves from file sync to context compilation. Other tools install files. Forge will <strong>compile</strong> your AI environment.",
+    "heading": "Coming next: Forge becomes the Harness Compiler",
+    "description": "Same <code>forge</code> CLI you already use — but under the hood, a full compiler pipeline. Other tools install files. Forge will <strong>compile</strong> your AI environment.",
     "items": [
       {
         "icon": "🌳",

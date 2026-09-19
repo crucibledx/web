@@ -4,6 +4,14 @@ All notable changes to `@crucibledx/web` are documented here. Format follows [Ke
 
 ---
 
+## [0.1.8] — 2026-09-19
+
+### Changed
+
+- **Forge page** — updated forge marketing page content and locale strings
+
+---
+
 ## [0.1.7] — 2026-09-19
 
 ### Changed

@@ -234,6 +234,18 @@ const demoGifs = [
     <div class="mx-auto max-w-7xl">
       <h2 class="mb-3 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('compiler.heading')}</h2>
       <p class="mx-auto mb-10 max-w-2xl text-center text-steel-500 dark:text-steel-400" set:html={t('compiler.description')} />
+      <div class="mx-auto mb-12 max-w-5xl overflow-hidden rounded-lg border border-steel-200 dark:border-steel-700">
+        <img
+          src="https://github.com/crucibledx/assets/raw/main/forge/diagrams/light/forge-compiler-pipeline.svg"
+          alt="Forge Compiler Pipeline — from file copier to context compiler"
+          class="w-full dark:hidden"
+        />
+        <img
+          src="https://github.com/crucibledx/assets/raw/main/forge/diagrams/dark/forge-compiler-pipeline.svg"
+          alt="Forge Compiler Pipeline — from file copier to context compiler"
+          class="hidden w-full dark:block"
+        />
+      </div>
       <FeatureGrid
         columns={3}
         features={messages.compiler.items as Array<{icon: string; title: string; description: string}>}
