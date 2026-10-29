@@ -7,8 +7,7 @@
   "homepage": "https://crucibledx.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/crucibledx/crucible.git",
-    "directory": "projects/web"
+    "url": "git+https://github.com/crucibledx/web.git"
   },
   "private": true,
   "type": "module",
