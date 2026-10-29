@@ -1,0 +1,50 @@
+# Crucible delivery loop. Logic lives in crucibledx/factory-loop; keep this file thin.
+name: Crucible loop
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+    paths: ["specs/**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+  actions: read
+  checks: read
+
+jobs:
+  implement:
+    if: github.event_name == 'issues' && github.event.label.name == 'loop:implement'
+    uses: crucibledx/factory-loop/.github/workflows/loop-implement.yml@v0
+    with:
+      lfs: false
+    secrets: inherit
+
+  mention:
+    if: contains(fromJSON('["issue_comment","pull_request_review_comment","pull_request_review"]'), github.event_name)
+    uses: crucibledx/factory-loop/.github/workflows/loop-mention.yml@v0
+    secrets: inherit
+
+  review:
+    if: github.event_name == 'pull_request'
+    uses: crucibledx/factory-loop/.github/workflows/loop-review.yml@v0
+    with:
+      review_depth: deep
+    secrets: inherit
+
+  specs:
+    if: github.event_name == 'push'
+    uses: crucibledx/factory-loop/.github/workflows/loop-spec-merged.yml@v0
+    secrets: inherit

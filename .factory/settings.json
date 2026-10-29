@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "factory-loop": {
+      "source": {
+        "source": "github",
+        "repo": "crucibledx/factory-loop"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "crucible-loop@factory-loop": true
+  }
+}
