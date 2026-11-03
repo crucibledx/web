@@ -12,7 +12,7 @@ description: Crucible platform development phases and timeline.
 **Focus:** Get Forge CLI to production quality. Ship publicly. Build initial community.
 
 | Milestone                              | Status      |
-|----------------------------------------|-------------|
+| -------------------------------------- | ----------- |
 | Forge CLI v0.6 (production-ready)      | ✅ Complete |
 | Skills Starter v0.6 (feature-complete) | ✅ Complete |
 | Website (crucibledx.dev)               | ✅ Complete |
@@ -30,7 +30,7 @@ description: Crucible platform development phases and timeline.
 Each compiler feature ships as its own Forge version with room for patch releases:
 
 | Version     | Feature                                  | Status         |
-|-------------|------------------------------------------|----------------|
+| ----------- | ---------------------------------------- | -------------- |
 | Forge v0.7  | Smithery/agentskills.io source adapter   | 🟡 In progress |
 | Forge v0.8  | Skill frontmatter schema + parser        | ⬜ Designed    |
 | Forge v0.9  | Skill graph + dependency resolution      | ⬜ Designed    |
@@ -47,7 +47,7 @@ Each compiler feature ships as its own Forge version with room for patch release
 **Focus:** Grow Ember with external integrations. Drive adoption through existing communities.
 
 | Version      | Feature                                         | Status    |
-|--------------|-------------------------------------------------|-----------|
+| ------------ | ----------------------------------------------- | --------- |
 | Ember v0.4   | Langfuse + Helicone integration                 | ⬜ Future |
 | Ember v0.5   | Agent OTEL + file watchers (Claude Code, Cline) | ⬜ Future |
 | Ember v0.6+  | Cursor/Windsurf/Copilot watchers                | ⬜ Future |
@@ -58,7 +58,7 @@ Each compiler feature ships as its own Forge version with room for patch release
 **Focus:** Extract shared infrastructure. Enable third-party plugins.
 
 | Milestone                            | Status    |
-|--------------------------------------|-----------|
+| ------------------------------------ | --------- |
 | @crucibledx/ember standalone package | ⬜ Future |
 | @crucibledx/smelt extraction         | ⬜ Future |
 | @crucibledx/anvil SDK                | ⬜ Future |
@@ -69,7 +69,7 @@ Each compiler feature ships as its own Forge version with room for patch release
 ## Architecture decisions
 
 | Decision              | Choice                  | Rationale                                                  |
-|-----------------------|-------------------------|------------------------------------------------------------|
+| --------------------- | ----------------------- | ---------------------------------------------------------- |
 | Platform architecture | Path C (shared library) | Engineering leverage + community cohesion                  |
 | Language              | TypeScript/Bun          | Fast iteration, single binary via compile                  |
 | Plugin protocol       | stdin/stdout JSON       | Language-agnostic, easy to test                            |
@@ -82,7 +82,7 @@ Each compiler feature ships as its own Forge version with room for patch release
 ## Codebase metrics (Forge CLI v0.6.24)
 
 | Metric                   | Value                          |
-|--------------------------|--------------------------------|
+| ------------------------ | ------------------------------ |
 | Production code          | 6,369 LOC across 144 files     |
 | Unit tests               | 6,700 LOC across 52 test files |
 | E2E tests                | 4,440 LOC across 25 test files |

@@ -28,7 +28,7 @@ One orchestrator, three phases:
 Put a file in the right place — the platform discovers it. No config, no registration.
 
 | What       | Convention                           | Discovered by                               |
-|------------|--------------------------------------|---------------------------------------------|
+| ---------- | ------------------------------------ | ------------------------------------------- |
 | Skill      | `skills/<name>/SKILL.md`             | `/create-resource`, `/test-resource`, Forge |
 | Skill docs | `skills/<name>/README.md`            | Developers browsing the repo                |
 | Design     | `docs/<name>/design.md`              | `/design-resource`, `/develop-resource`     |
