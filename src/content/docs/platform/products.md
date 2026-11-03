@@ -8,7 +8,7 @@ Crucible is a platform of focused tools sharing a common infrastructure. Each pr
 ## Product overview
 
 | Product     | Type       | Purpose                         | Status               |
-|-------------|------------|---------------------------------|----------------------|
+| ----------- | ---------- | ------------------------------- | -------------------- |
 | **Forge**   | CLI        | AI environment context compiler | ✅ Shipped (v0.6.24) |
 | **Ember**   | Collector  | AI assistant observability      | 🔬 Designing         |
 | **Smelt**   | Library    | Shared plugin engine            | 📋 Designed          |
@@ -24,6 +24,7 @@ Crucible is a platform of focused tools sharing a common infrastructure. Each pr
 The first Crucible product. Today it syncs shared AI assistant configurations from a central source to every AI tool's expected location. Next: a **context compiler** that understands skill dependencies, tree-shakes unused content, and optimizes output per agent.
 
 **Current (v0.6):**
+
 - **12 commands** — init, sync, status, health, config, source management, scheduler, telemetry, uninstall
 - **5 assistants** — Claude Code, Cursor, Windsurf, GitHub Copilot, Cline
 - **2 source types** — git, local (+ Smithery/agentskills.io coming)
@@ -31,6 +32,7 @@ The first Crucible product. Today it syncs shared AI assistant configurations fr
 - **687 tests**, 6,369 LOC production code
 
 **Coming (v0.7 — Context Compiler):**
+
 - Skill frontmatter schema with dependencies, tags, context, and priority
 - Dependency graph with topological ordering and cycle detection
 - Project context detection — auto-detect language/framework from marker files
@@ -66,7 +68,7 @@ Key insight: Forge manages **what** configs agents get. Ember measures **how** t
 Ember grows progressively in tiers:
 
 | Tier           | Data Source                | What It Answers                               |
-|----------------|----------------------------|-----------------------------------------------|
+| -------------- | -------------------------- | --------------------------------------------- |
 | **0** (exists) | Forge operational events   | "Is Forge working?"                           |
 | **1** (v0.1)   | Forge compiler manifest    | "Which skills, versions, agents per project?" |
 | **1.5** (v0.1) | OTLP metric export         | "Same data, in Grafana/DataDog"               |
