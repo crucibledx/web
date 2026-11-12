@@ -29,13 +29,12 @@ bun run preview        # preview production build locally
 ```
 src/
   pages/               # Astro pages (file-based routing)
-  components/          # Reusable Astro/React components
+  components/          # Reusable Astro components
   layouts/             # Page layouts
   content/
     docs/              # Starlight documentation (Markdown)
-  assets/              # Images, SVGs, diagram exports
-public/
-  demos/               # Terminal demo GIFs (VHS recordings)
+  assets/              # Logos (diagrams and demo GIFs come from crucibledx/assets)
+public/                # Static files served as-is
 ```
 
 ## Adding Documentation
@@ -56,7 +55,7 @@ description: Brief description for SEO
 ---
 ```
 
-Starlight auto-discovers pages from the sidebar config in `astro.config.mjs`.
+Then add the page to the `sidebar` list in `astro.config.mjs`; pages are not added to it automatically.
 
 ## Adding Pages
 
@@ -74,16 +73,18 @@ To add or update a diagram, edit the source `.drawio` in the assets repo, export
 ## Before You Submit
 
 ```bash
-bun run build          # must succeed with zero errors
+bun run format:check && bun run lint && bun run typecheck && bun run build
 ```
+
+CI runs the same checks on every pull request.
 
 ## Commit Messages
 
-Format: `type(version): description`
+Release commits use `v0.x.y: description` and bump the version in `package.json`. Other commits use a type prefix:
 
 ```
-feat(v0.1.0): add forge product page
-fix: broken link on landing page
+v0.1.8: update forge page content and locale strings
+feat: add forge product page
 docs: update getting started guide
 ```
 
