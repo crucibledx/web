@@ -37,7 +37,7 @@
     "astro": "^7.1.6",
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.3.3",
-    "posthog-js": "^1.416.0"
+    "posthog-js": "^1.447.1"
   },
   "devDependencies": {
     "eslint": "^10.3.0",
