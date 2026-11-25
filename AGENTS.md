@@ -31,6 +31,8 @@ bun run build && bun run preview                                           # ser
 - Product facts on the site (commands, flags, install methods) come from each product repo's `main`, not from drafts or
   roadmaps.
 - Public env vars are listed in `.env.example`. Never commit `.env`.
+- `bunfig.toml` sets `linker = "isolated"` so optional peers resolve per dependent (the hoisted layout breaks the
+  Astro language server's YAML service). Keep it; `bun.lock` stays the source of truth for versions.
 
 ## Boundaries
 
