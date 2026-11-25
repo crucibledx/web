@@ -1,0 +1,5 @@
+[install]
+# The hoisted linker puts ajv-draft-04 (optional peer ajv ^8) at the root next to eslint's ajv 6, so the Astro
+# language server's YAML service fails on require('ajv/dist/core'). The isolated linker resolves each package's
+# peers from the package that depends on it. Upstream: https://github.com/oven-sh/bun/issues/22150
+linker = "isolated"
