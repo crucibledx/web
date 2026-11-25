@@ -2,8 +2,6 @@
 name: Crucible loop
 
 on:
-  issues:
-    types: [labeled]
   issue_comment:
     types: [created]
   pull_request_review_comment:
@@ -25,23 +23,25 @@ permissions:
   checks: read
 
 jobs:
-  implement:
-    if: github.event_name == 'issues' && github.event.label.name == 'loop:implement'
-    uses: crucibledx/factory-loop/.github/workflows/loop-implement.yml@v0
-    with:
-      lfs: false
-    secrets: inherit
-
   mention:
     if: contains(fromJSON('["issue_comment","pull_request_review_comment","pull_request_review"]'), github.event_name)
     uses: crucibledx/factory-loop/.github/workflows/loop-mention.yml@v0
     secrets: inherit
 
+  # Required by the main-branch ruleset: fails while blocking review threads are unresolved.
+  # Submitted reviews only re-check the gate (no model run).
   review:
-    if: github.event_name == 'pull_request'
+    if: contains(fromJSON('["pull_request","pull_request_review"]'), github.event_name)
     uses: crucibledx/factory-loop/.github/workflows/loop-review.yml@v0
-    with:
-      review_depth: deep
+    secrets: inherit
+
+  # Your approval of the head turns on auto-merge; GitHub merges once the ruleset's checks and conversations are
+  # satisfied. A new push turns it off until you approve the new head.
+  automerge:
+    if: >-
+      github.event_name == 'pull_request_review' ||
+      (github.event_name == 'pull_request' && github.event.action == 'synchronize')
+    uses: crucibledx/factory-loop/.github/workflows/loop-automerge.yml@v0
     secrets: inherit
 
   specs:
