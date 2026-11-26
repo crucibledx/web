@@ -1,6 +1,6 @@
 ---
 title: Configuration
-description: Full forge.config.yaml reference.
+description: Forge project and global configuration.
 ---
 
 Forge uses YAML configuration files at two levels:
@@ -13,9 +13,13 @@ Project config overrides global config.
 ## Minimal config
 
 ```yaml
+version: '1'
+
 assistants:
-  - claude-code
-  - cursor
+  - id: claude-code
+    enabled: true
+  - id: cursor
+    enabled: true
 
 sources:
   - name: team-skills
@@ -23,16 +27,27 @@ sources:
     url: git@github.com:myorg/ai-skills.git
 ```
 
-## Full reference
+## Example configuration
 
 ```yaml
-# Assistants to sync to
+version: '1'
+
+project:
+  name: my-project
+  description: Shared resources for my project
+
+# Coding harnesses to sync to
 assistants:
-  - claude-code
-  - cursor
-  - windsurf
-  - copilot
-  - cline
+  - id: claude-code
+    enabled: true
+  - id: cursor
+    enabled: true
+  - id: windsurf
+    enabled: false
+  - id: copilot
+    enabled: false
+  - id: cline
+    enabled: false
 
 # Sources to fetch from
 sources:
@@ -40,6 +55,7 @@ sources:
     type: git
     url: git@github.com:myorg/ai-skills.git
     branch: main # default: main
+    path: shared # optional subdirectory within the repository
     layout: auto # auto | canonical | pre-structured
     include: # glob patterns to include
       - 'skills/**'
@@ -52,16 +68,13 @@ sources:
     type: local
     path: ~/my-rules
 
-# Sync behavior
+# Sync behavior and optional scheduler
 sync:
-  sourceConflict: last-wins # last-wins | first-wins | error
-  localConflict: remote-wins # remote-wins | local-wins | error
+  source_conflict_strategy: last-wins # last-wins | first-wins | error
+  local_conflict_strategy: remote-wins # remote-wins | local-wins | error
   backup: true # create .bak when overwriting local changes
-  keepLocal: true # keep files removed from source
-
-# Scheduler
-scheduler:
-  schedule: '*/30 * * * *' # cron expression (default: every 30 min)
+  keep_local: true # keep files removed from source
+  schedule: '*/30 * * * *' # optional cron expression
 
 # Telemetry
 telemetry:
@@ -72,16 +85,17 @@ telemetry:
 
 ### Git source
 
-| Field     | Required | Default | Description                |
-| --------- | -------- | ------- | -------------------------- |
-| `name`    | yes      | —       | Identifier for this source |
-| `type`    | yes      | —       | Must be `git`              |
-| `url`     | yes      | —       | SSH or HTTPS git URL       |
-| `branch`  | no       | `main`  | Branch to fetch            |
-| `layout`  | no       | `auto`  | Layout detection mode      |
-| `include` | no       | —       | Glob patterns to include   |
-| `exclude` | no       | —       | Glob patterns to exclude   |
-| `map`     | no       | —       | Virtual directory prefix   |
+| Field     | Required | Default | Description                        |
+| --------- | -------- | ------- | ---------------------------------- |
+| `name`    | yes      | —       | Identifier for this source         |
+| `type`    | yes      | —       | Must be `git`                      |
+| `url`     | yes      | —       | SSH or HTTPS git URL               |
+| `branch`  | no       | `main`  | Branch to fetch                    |
+| `path`    | no       | —       | Subdirectory within the repository |
+| `layout`  | no       | `auto`  | Layout detection mode              |
+| `include` | no       | —       | Glob patterns to include           |
+| `exclude` | no       | —       | Glob patterns to exclude           |
+| `map`     | no       | —       | Virtual directory prefix           |
 
 ### Local source
 

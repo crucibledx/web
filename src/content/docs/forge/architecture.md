@@ -23,7 +23,7 @@ Pure types, logic, and schemas. No I/O, no framework dependencies. Imports nothi
 
 Key modules:
 
-- **assistants/** — 5 assistant definitions (dir-per-entry)
+- **assistants/** — 5 coding-harness definitions (dir-per-entry)
 - **config/** — config types, Zod schemas
 - **sync/** — resolver, drift detection, conflict resolution, merge, state, report
 - **transforms/** — rename, frontmatter-rename (self-registering)
@@ -67,11 +67,11 @@ All I/O: filesystem, git, CLI prompts, config parsing.
 
 ## Adding things
 
-| What            | Where                           | How                        |
-| --------------- | ------------------------------- | -------------------------- |
-| New assistant   | `domain/assistants/<name>/`     | One file + registry entry  |
-| New source type | `infrastructure/source/<type>/` | Three files + barrel entry |
-| New command     | `application/commands/<name>/`  | Two files + barrel entry   |
-| New transform   | `domain/transforms/<name>/`     | One file + registry entry  |
+| What               | Where                           | How                        |
+| ------------------ | ------------------------------- | -------------------------- |
+| New coding harness | `domain/assistants/<name>/`     | One file + registry entry  |
+| New source type    | `infrastructure/source/<type>/` | Three files + barrel entry |
+| New command        | `application/commands/<name>/`  | Two files + barrel entry   |
+| New transform      | `domain/transforms/<name>/`     | One file + registry entry  |
 
 Zero changes to existing commands or handlers required.

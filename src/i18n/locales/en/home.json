@@ -1,68 +1,68 @@
 {
   "meta": {
-    "title": "Crucible — DX Infrastructure Platform",
-    "description": "Sync shared AI assistant configs across tools and repos with one command."
+    "title": "Crucible — Infrastructure for Coding Harnesses",
+    "description": "Forge distributes skills, rules, and workflows across coding harnesses. Ember traces agent work as OpenTelemetry."
   },
   "hero": {
-    "headline": "Your AI assistants don't talk to each other.",
-    "subheadline": "Crucible fixes that. Sync shared AI configs across tools and repos with one command.",
+    "headline": "Ship shared context. Trace agent work.",
+    "subheadline": "Crucible builds open-source infrastructure for coding harnesses. Forge distributes skills, rules, and workflows across your tools. Ember reconstructs agent session trees and groups cross-harness work with ember.work.id.",
     "ctaPrimary": "Get Started →",
     "ctaSecondary": "GitHub →",
     "terminalDemo": "forge sync"
   },
   "problem": {
-    "heading": "The problem is real",
+    "heading": "Context and telemetry fragment across tools",
     "scattered": {
       "icon": "📂",
-      "title": "10 repos, 5 AI tools, 50 config files",
-      "description": "Every repo has its own Claude rules, Cursor configs, Copilot instructions. Scattered, duplicated, drifting."
+      "title": "Every harness has its own paths and formats",
+      "description": "Claude Code rules, Cursor configuration, and Copilot instructions live in different places. Shared resources drift between repositories."
     },
     "drift": {
       "icon": "🔄",
-      "title": "Copy-paste. Drift. Outdated rules.",
-      "description": "Someone updates a skill in one repo. The other 9 repos are still on the old version. Nobody notices."
+      "title": "Manual copies go stale",
+      "description": "A skill changes in one repository. Other projects keep the old version. Forge shows the drift and applies the update."
     },
     "visibility": {
       "icon": "🔍",
-      "title": "Nobody knows what's actually being used.",
-      "description": "Which skills are active? Which are stale? No cross-tool visibility, no usage metrics, no feedback loop."
+      "title": "Agent work crosses session boundaries",
+      "description": "Orchestrators, agents, subagents, and tool calls produce disconnected telemetry. Ember reconstructs each session or workstream tree and groups cross-harness work with ember.work.id."
     }
   },
   "howItWorks": {
-    "heading": "How it works",
+    "heading": "Distribute shared resources with Forge",
     "step1": {
-      "title": "Define skills in one repo",
-      "description": "Write AI skills, rules, and workflows in a central source repo. Convention-over-configuration — just put files in the right folder."
+      "title": "Define resources in one source",
+      "description": "Keep skills, rules, and workflows in a Git repository or local directory. Use the canonical folders or your existing harness-specific layout."
     },
     "step2": {
-      "title": "forge sync distributes them",
-      "description": "One command fetches from your sources and places files for each AI tool in the right location, in the right format."
+      "title": "Run forge sync",
+      "description": "Forge resolves each enabled coding harness and writes its native paths. Dry-run shows the complete plan first."
     },
     "step3": {
-      "title": "Every tool gets the right config",
-      "description": "Automatic transforms: .md → .mdc for Cursor, .md → .instructions.md for Copilot. SHA-256 change detection. No unnecessary rewrites."
+      "title": "Keep targets in sync",
+      "description": "Apply transforms for Cursor and Copilot. Detect changes with SHA-256. Check drift with forge status and automate runs with the scheduler."
     }
   },
   "tools": {
-    "heading": "Supports your favorite AI tools",
-    "more": "More coming. It's pluggable."
+    "heading": "Native output for coding harnesses",
+    "more": "Droid and Claude Code plugin delivery is planned for Forge v0.8."
   },
   "ecosystem": {
-    "heading": "The Crucible ecosystem",
+    "heading": "Focused tools. Open protocols.",
     "forge": {
       "name": "Forge CLI",
-      "description": "Sync shared AI configs (skills, rules, workflows) across Claude Code, Cursor, Windsurf, Copilot, and Cline.",
-      "badge": "Shipped"
+      "description": "Sync skills, rules, and workflows across Claude Code, Cursor, Windsurf, Copilot, and Cline.",
+      "badge": "v0.7.0"
     },
     "starter": {
-      "name": "Skills Platform",
-      "description": "Build, test, and deliver AI agent resources. Convention-over-configuration template for teams.",
+      "name": "Forge Skills Starter",
+      "description": "Develop and test agent skills, rules, and workflows in a convention-based source repository.",
       "badge": "Shipped"
     },
     "ember": {
       "name": "Ember",
-      "description": "Cross-tool AI assistant observability. See how your skills are actually used. Your data never leaves your infrastructure.",
-      "badge": "Coming Soon"
+      "description": "A Go OpenTelemetry Collector distribution for session trees, usage, MCP, and work attribution across coding harnesses.",
+      "badge": "In development"
     },
     "more": "More products on the {link} — Smelt, Anvil, Lathe, Foundry, Cast.",
     "roadmapLink": "roadmap"

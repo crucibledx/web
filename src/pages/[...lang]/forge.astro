@@ -51,7 +51,7 @@ const demoGifs = [
           <div class="rounded-md bg-steel-900 px-4 py-2 font-mono text-xs text-steel-100 dark:bg-steel-950">
             <span class="text-steel-400">$</span> brew install crucibledx/tap/forge<br />
             <span class="text-steel-400">$</span> forge init --global<br />
-            <span class="text-molten-400">✓</span> Done. Forge will sync automatically.
+            <span class="text-molten-400">✓</span> Global config created.
           </div>
         </div>
         <div class="rounded-lg border border-steel-200 bg-white p-6 dark:border-steel-700 dark:bg-steel-800">
@@ -160,7 +160,7 @@ const demoGifs = [
     </div>
   </section>
 
-  <!-- Assistants -->
+  <!-- Coding harnesses -->
   <section class="px-6 py-16">
     <div class="mx-auto max-w-7xl">
       <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('assistants.heading')}</h2>
@@ -229,7 +229,7 @@ const demoGifs = [
     </div>
   </section>
 
-  <!-- Compiler — Coming Next -->
+  <!-- Product roadmap -->
   <section class="bg-steel-50 px-6 py-16 dark:bg-steel-900">
     <div class="mx-auto max-w-7xl">
       <h2 class="mb-3 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('compiler.heading')}</h2>
@@ -237,18 +237,6 @@ const demoGifs = [
         class="mx-auto mb-10 max-w-2xl text-center text-steel-500 dark:text-steel-400"
         set:html={t('compiler.description')}
       />
-      <div class="mx-auto mb-12 max-w-5xl overflow-hidden rounded-lg border border-steel-200 dark:border-steel-700">
-        <img
-          src="https://github.com/crucibledx/assets/raw/main/forge/diagrams/light/forge-compiler-pipeline.svg"
-          alt="Forge Compiler Pipeline — from file copier to context compiler"
-          class="w-full dark:hidden"
-        />
-        <img
-          src="https://github.com/crucibledx/assets/raw/main/forge/diagrams/dark/forge-compiler-pipeline.svg"
-          alt="Forge Compiler Pipeline — from file copier to context compiler"
-          class="hidden w-full dark:block"
-        />
-      </div>
       <FeatureGrid
         columns={3}
         features={messages.compiler.items as Array<{icon: string; title: string; description: string}>}

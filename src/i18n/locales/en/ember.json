@@ -1,128 +1,123 @@
 {
   "meta": {
-    "title": "Ember — AI Observability — Crucible",
-    "description": "Cross-tool AI assistant observability. Your data never leaves your infrastructure."
+    "title": "Ember — OpenTelemetry for Coding Agents — Crucible",
+    "description": "Ember is a Go OpenTelemetry Collector distribution that reconstructs agent session trees and groups cross-harness work with ember.work.id. In development."
   },
   "hero": {
-    "badge": "Coming Soon",
-    "headline": "See how your AI tools are actually used.",
-    "subheadline": "Version-aware telemetry for AI coding environments. Which skills, which versions, which agents, which cost — from Forge compiler manifest to Grafana. Your data never leaves your infrastructure."
+    "badge": "In development",
+    "headline": "Session trees. Connected agent work.",
+    "subheadline": "Ember reconstructs session and workstream trees across processes and machines. It groups related work across coding harnesses with ember.work.id and exports standard OTLP to your existing backend. Content capture is off by default."
   },
   "problem": {
-    "heading": "The enterprise visibility gap",
+    "heading": "Agent telemetry loses the session tree",
     "items": [
       {
-        "icon": "🔇",
-        "title": "No idea which skills are deployed",
-        "description": "You sync 20 skills to 50 developers. Which version is each developer running? Are all teams on the latest? No way to know."
+        "icon": "🌳",
+        "title": "Disconnected sessions",
+        "description": "Orchestrators, agents, and subagents run in separate processes and export separate traces. Parent and child relationships disappear."
       },
       {
         "icon": "💸",
-        "title": "No cost attribution",
-        "description": "Langfuse shows total LLM cost. But which skill caused it? Did skill v2.1 cost 40% more than v2.0? Nobody can answer this."
+        "title": "Missing work and usage context",
+        "description": "Tokens, credits, cost, MCP calls, and human attribution sit in different harness records. Cross-harness work has no shared identifier."
       },
       {
         "icon": "🔒",
-        "title": "Trust problem",
-        "description": "Any observability tool that phones home to a third party is dead on arrival in enterprise. Data must stay in your infra."
+        "title": "Content should stay optional",
+        "description": "Telemetry needs metadata without prompts, tool inputs, or response bodies. Ember uses an explicit allowlist and disables content capture by default."
       }
     ]
   },
   "architecture": {
-    "heading": "Prometheus model for AI assistants",
-    "diagramAlt": "Ember Architecture — collector ingests from AI assistants and pushes to company backend",
-    "caption": "Crucible provides the collector. Company provides the destination. Zero data touches Crucible servers."
+    "heading": "A collector for coding harnesses",
+    "diagramAlt": "Ember architecture — machine agents and an optional gateway export OTLP to an existing backend",
+    "caption": "Ember runs as an agent on each machine. An optional gateway merges machines. Your backend receives standard OTLP."
   },
   "loop": {
-    "heading": "The closed feedback loop",
-    "description": "Forge manages <strong>what</strong> configs/skills agents get. Ember measures <strong>how</strong> those configs/skills are actually used. Together: configure → measure → optimize.",
-    "steps": ["Author skills", "Forge syncs", "Developers use", "Ember measures", "Optimize"]
+    "heading": "Shared context. Connected telemetry.",
+    "description": "<strong>Forge</strong> distributes skills, rules, and workflows. <strong>Ember</strong> traces the work agents do. They integrate through files and open protocols while your harnesses and observability backend stay in place.",
+    "steps": ["Author resources", "Forge syncs", "Agents work", "Ember joins traces", "Inspect in your backend"]
   },
   "value": {
-    "heading": "Enterprise value",
+    "heading": "The context needed to inspect agent work",
     "items": [
       {
-        "icon": "📈",
-        "title": "For Engineering Managers",
-        "description": "\"How much are we spending on AI per team? Which teams are actually using the tools we paid for? What's the ROI?\""
+        "icon": "🌳",
+        "title": "Session lineage",
+        "description": "Follow work from orchestrator to agent, subagent, and tool call. Deterministic IDs reconnect records exported by different processes and machines."
       },
       {
-        "icon": "⚙️",
-        "title": "For Platform Teams",
-        "description": "\"Which skills are used? Which should we deprecate? Are developers accepting or reverting AI suggestions?\""
+        "icon": "📈",
+        "title": "Usage and attribution",
+        "description": "Add tokens, Droid credits, Claude Code cost, MCP server and tool names, and human attribution. Group cross-harness work with ember.work.id."
       },
       {
         "icon": "🛡️",
-        "title": "For Compliance & Security",
-        "description": "\"Audit trail of AI usage. Proof that guardrails are applied. Data stays in our infrastructure, zero third-party exposure.\""
+        "title": "Privacy controls",
+        "description": "Export metadata by default. Attribute allowlists decide what leaves each machine, and deny rules take precedence."
       }
     ]
   },
   "otel": {
-    "heading": "Built on top of existing telemetry",
-    "description": "Ember's data starts with the <strong>Forge compiler manifest</strong> — a JSON file emitted on every build that lists every skill, version, hash, agent target, and token estimate. No hooks needed. Then it grows with integrations.",
+    "heading": "Standard OTLP. Your existing backend.",
+    "description": "Ember is a <strong>custom OpenTelemetry Collector distribution written in Go</strong>. Harness adapters combine native telemetry with local session records. Upstream collector components provide batching, retries, memory limits, and exporters.",
     "claudeCode": {
-      "title": "Tier 1 — Forge Manifest",
-      "description": "Which skills, which versions, which agents, per project. Version drift detection across developers. Token budget utilization per agent."
+      "title": "Session trees",
+      "description": "Connect every session, subagent, and tool call with deterministic trace and span IDs. Droid and Claude Code are the initial adapters."
     },
     "ember": {
-      "title": "Tier 2 — Langfuse / Helicone",
-      "description": "Correlate manifest data with actual LLM usage. Answer: 'skill X v2.1 costs 40% more tokens than v2.0.' Aggregate across tools."
+      "title": "Work and usage context",
+      "description": "Enrich telemetry with ember.work.id, harness and workstream IDs, token and credit metrics, MCP details, and human attribution."
     },
     "combined": {
-      "title": "Tier 3 — Agent OTEL",
-      "description": "Ingest native agent telemetry (Claude Code OTEL, Cline logs). Confirm which skills were actually activated, not just deployed."
+      "title": "Open export",
+      "description": "Send traces, logs, and metrics over standard OTLP. Keep using Grafana, Datadog, Dash0, or another compatible backend."
     },
-    "footer": "Each tier adds a new data dimension without replacing the previous one. Start with manifest analytics, grow into full observability."
+    "footer": "These capabilities describe the Ember v1 design. Ember is in development and is not yet released."
   },
   "dashboard": {
-    "heading": "What you'll see",
+    "heading": "Planned Grafana dashboards",
     "skills": {
-      "title": "SKILL INVOCATIONS — LAST 7 DAYS"
+      "title": "TOOL AND MCP CALLS — LAST 7 DAYS"
     },
     "tokens": {
-      "title": "TOKEN USAGE BY TEAM",
-      "estimatedCost": "Estimated cost: <span>{cost}</span> / week across 3 teams"
+      "title": "TOKEN USAGE BY MODEL",
+      "estimatedCost": "Native cost metrics stay in the harness's reported currency."
     },
     "distribution": {
-      "title": "ASSISTANT DISTRIBUTION"
+      "title": "SESSIONS BY HARNESS"
     },
     "versions": {
-      "title": "SKILL VERSION ADOPTION"
+      "title": "WORK AND SESSION LINEAGE"
     },
-    "caption": "Mock data — illustrates what Ember dashboards will provide. Push to Grafana, DataDog, or any OTLP-compatible backend."
+    "caption": "Mock data. The v1 design includes Agent tree, Overview, Tools and MCP, and Cost dashboards. Ember is in development."
   },
   "landscape": {
-    "heading": "How Ember fits the landscape",
+    "heading": "Complement the tools you already run",
     "thTool": "Tool",
     "thDoes": "What it does",
-    "thRelationship": "Ember's relationship",
-    "footer": "Ember doesn't compete with any of these. It's the unified collector that covers all AI assistants and pushes to your choice of backend.",
+    "thRelationship": "Ember's role",
+    "footer": "Ember complements harness telemetry and observability backends. It does not replace either.",
     "items": [
       {
-        "tool": "Langfuse",
-        "does": "LLM trace observability",
-        "relationship": "Ember imports Langfuse data + correlates with skill versions for cost attribution"
-      },
-      {
-        "tool": "Helicone",
-        "does": "LLM proxy with logging and caching",
-        "relationship": "Ember enriches Helicone logs with skill-version context"
+        "tool": "Factory Analytics",
+        "does": "Droid usage aggregates",
+        "relationship": "Ember adds cross-process session trees and standard OTLP export for Droid work."
       },
       {
         "tool": "Claude Code OTEL",
-        "does": "Native skill_activated events, token traces",
-        "relationship": "Ember ingests + adds versioning, cross-tool normalization"
+        "does": "Native Claude Code telemetry",
+        "relationship": "Ember keeps native telemetry and fills session-tree, MCP, work, and attribution gaps."
       },
       {
-        "tool": "DataDog LLM Obs",
-        "does": "Enterprise LLM monitoring",
-        "relationship": "Ember pushes OTLP metrics with skill-version dimensions to DataDog"
+        "tool": "Datadog / Dash0",
+        "does": "Observability backends",
+        "relationship": "Send Ember's traces, logs, and metrics to an existing OTLP intake."
       },
       {
         "tool": "Grafana",
-        "does": "Open-source dashboarding",
-        "relationship": "Ember ships a pre-built Grafana dashboard pack — import and go"
+        "does": "Dashboards and exploration",
+        "relationship": "The v1 design includes dashboards for agent trees, usage, tools and MCP, and cost."
       }
     ]
   }

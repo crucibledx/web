@@ -1,76 +1,76 @@
 {
   "meta": {
     "title": "Forge CLI — Crucible",
-    "description": "Forge — AI environment sync tool becoming the Harness Compiler. Distribute shared skills across Claude Code, Cursor, Windsurf, Copilot, and Cline."
+    "description": "Forge syncs skills, rules, and workflows across coding harnesses. Install v0.7.0 with npm, Homebrew, or Scoop."
   },
   "hero": {
-    "headline": "One source of truth for every AI tool.",
-    "subheadline": "Today, Forge is a dead-simple sync engine — point it at a repo, it distributes skills to Claude Code, Cursor, Windsurf, Copilot, and Cline in the right format. But that's just the foundation. Forge is becoming the Harness Compiler — same CLI, new brain: dependency graphs, tree-shaking, token budgets, per-agent optimization. Think Vite, but for AI agents.",
+    "headline": "One source. Five coding harnesses.",
+    "subheadline": "Forge v0.7.0 distributes shared skills, rules, and workflows from Git or local sources. It writes native paths and formats for Claude Code, Cursor, Windsurf, Copilot, and Cline. Preview changes, detect drift, and sync on demand or on a schedule.",
     "ctaPrimary": "Install Forge →",
     "ctaSecondary": "View Commands →",
     "terminalDemo": "forge init → forge sync"
   },
   "setup": {
-    "heading": "Two minutes to set up. Zero maintenance.",
+    "heading": "Configure once. Sync when you need it.",
     "global": {
-      "title": "Global setup (once per machine)",
-      "description": "Run <code>forge init --global</code> and point it at your team's shared resource repo. The wizard detects your AI tools and writes the config. That's it — every new project you open gets synced automatically."
+      "title": "Global setup",
+      "description": "Run <code>forge init --global</code> and choose a shared resource source. The wizard detects supported coding harnesses and writes the machine-level config. Enable the scheduler if you want automatic syncs."
     },
     "project": {
-      "title": "Per-project setup (once per repo)",
-      "description": "Need project-specific skills? Run <code>forge init</code> inside the repo. Same wizard, same simplicity. Once configured, forget about it — Forge keeps everything in sync."
+      "title": "Project setup",
+      "description": "Run <code>forge init</code> inside a repository to add project-specific sources and targets. Commit <code>.crucible/forge.config.yaml</code> so the team uses the same source configuration."
     },
-    "footer": "No YAML to hand-edit. No complex configs to learn. The wizard handles everything."
+    "footer": "Use forge sync --dry-run to inspect the plan before any file changes."
   },
   "source": {
-    "heading": "Best paired with an AI Resources Platform",
-    "description": "Forge pulls from any git repo. But for the best experience, we recommend using a structured {link} as your source — it gives you convention-over-configuration, versioned resources, automated testing, and a clear lifecycle from idea to delivery.",
-    "platformLink": "AI Resources Platform",
-    "note": "Forge works with any git source. The resources platform just makes it better."
+    "heading": "Start with Forge Skills Starter",
+    "description": "Forge works with any Git repository or local source. {link} adds conventions for developing and testing skills, rules, and workflows before you distribute them.",
+    "platformLink": "Forge Skills Starter",
+    "note": "Use the starter as a source, or point Forge at the repository you already have."
   },
   "demos": {
-    "heading": "See it in action",
+    "heading": "The sync workflow",
     "items": [
       {
-        "title": "Set & Forget",
-        "description": "Run the wizard once. It detects your AI tools, adds a git source, enables auto-sync scheduling. Never think about it again."
+        "title": "Initialize and schedule",
+        "description": "Detect coding harnesses, add a Git source, and configure OS-level auto-sync from the interactive wizard."
       },
       {
-        "title": "Easy Updates",
-        "description": "Check status, spot drift, add a second source, sync everything. No YAML editing, no guessing — the wizard handles it."
+        "title": "Update without drift",
+        "description": "Check status, add another source, and sync updated resources. Forge reports drift between source, state, and target files."
       },
       {
-        "title": "Power User",
-        "description": "Fine-grained source control with subdirectories, include/exclude filters, merge strategies, dry-run preview, and health dashboard."
+        "title": "Control the output",
+        "description": "Use subdirectories, include and exclude filters, conflict strategies, dry-run previews, and the health dashboard."
       }
     ]
   },
   "commands": {
-    "heading": "12 commands. Everything you need.",
+    "heading": "Commands for the full sync workflow",
     "thCommand": "Command",
     "thDescription": "What it does",
     "items": [
-      {"cmd": "forge init", "desc": "Interactive wizard — detects AI tools, configures sources, writes config."},
-      {"cmd": "forge sync", "desc": "Fetches from all sources, resolves targets, places files for each assistant."},
-      {"cmd": "forge status", "desc": "Shows drift between last sync and current filesystem state."},
-      {"cmd": "forge health", "desc": "SLI dashboard — sync frequency, drift count, source reachability."},
-      {"cmd": "forge config", "desc": "Interactive config editor with section-based menu."},
-      {"cmd": "forge source list", "desc": "Shows configured sources with type, synced file counts."},
-      {"cmd": "forge source add", "desc": "Add a new source interactively."},
-      {"cmd": "forge source remove", "desc": "Remove a source with optional cleanup of synced files."},
-      {"cmd": "forge source edit", "desc": "Edit existing source configuration with pre-filled values."},
-      {"cmd": "forge scheduler", "desc": "Install/uninstall/status for OS-level auto-sync scheduling."},
-      {"cmd": "forge telemetry", "desc": "Shows telemetry status, config, and what's collected."},
-      {"cmd": "forge uninstall", "desc": "Removes .crucible directory, scheduler, and all synced files."}
+      {"cmd": "forge init", "desc": "Detects coding harnesses, configures sources, and writes config."},
+      {"cmd": "forge sync", "desc": "Fetches sources, resolves targets, and writes files for each harness."},
+      {"cmd": "forge status", "desc": "Shows drift between the last sync and current filesystem state."},
+      {"cmd": "forge health", "desc": "Reports sync frequency, drift, source reachability, and active harnesses."},
+      {"cmd": "forge config", "desc": "Opens the section-based interactive config editor."},
+      {"cmd": "forge source list", "desc": "Lists configured sources and synced file counts."},
+      {"cmd": "forge source add", "desc": "Adds a source interactively."},
+      {"cmd": "forge source remove", "desc": "Removes a source with optional cleanup of synced files."},
+      {"cmd": "forge source edit", "desc": "Edits a source with its current values pre-filled."},
+      {"cmd": "forge scheduler", "desc": "Installs, removes, and checks OS-level auto-sync scheduling."},
+      {"cmd": "forge telemetry", "desc": "Shows local telemetry status, configuration, and collected events."},
+      {"cmd": "forge uninstall", "desc": "Removes Forge configuration, scheduling, and tracked synced files."}
     ]
   },
   "assistants": {
-    "heading": "5 assistants. One config.",
-    "thAssistant": "Assistant",
-    "thPaths": "Config Paths",
+    "heading": "Five coding harnesses. One source.",
+    "thAssistant": "Harness",
+    "thPaths": "Target paths",
     "thTransforms": "Transforms",
-    "footer": "Adding a new assistant = one file. Zero command handler changes.",
-    "learnMore": "Learn more →",
+    "footer": "Each harness definition owns its paths and transforms. Command handlers stay unchanged.",
+    "learnMore": "Read the harness reference →",
     "items": [
       {
         "name": "Claude Code",
@@ -92,47 +92,47 @@
     ]
   },
   "features": {
-    "heading": "Built for real teams",
+    "heading": "A transactional sync engine",
     "items": [
       {
         "icon": "⚡",
         "title": "Multi-source",
-        "description": "Parallel fetching via Promise.allSettled. Failed sources don't block others."
+        "description": "Fetches every configured source before protected writes. Any acquisition failure aborts the sync."
       },
       {
         "icon": "🔀",
         "title": "Conflict resolution",
-        "description": "Source + local conflict strategies: last-wins, first-wins, or error."
+        "description": "Choose first-wins, last-wins, or error for source conflicts and explicit strategies for local edits."
       },
       {
         "icon": "💾",
         "title": "Backup",
-        "description": "When remote-wins overwrites local changes, .bak copies are created automatically."
+        "description": "Creates .bak copies before overwriting tracked files."
       },
       {
         "icon": "🔐",
         "title": "SHA-256 detection",
-        "description": "No unnecessary rewrites. Only writes when content actually changed."
+        "description": "Skips writes when the target content has not changed."
       },
       {
         "icon": "📋",
         "title": "Dry-run",
-        "description": "Preview all changes without writing. See what would happen before it does."
+        "description": "Previews acquisitions, transforms, and target changes without writing files."
       },
       {
         "icon": "⏪",
         "title": "Rollback",
-        "description": "On mutation failure, already-written files are rolled back. No partial state."
+        "description": "Compensates completed writes after a mutation failure and reports incomplete recovery explicitly."
       },
       {
         "icon": "⏰",
         "title": "Scheduler",
-        "description": "Cross-platform auto-sync: launchd (macOS), crontab (Linux), schtasks (Windows)."
+        "description": "Runs auto-sync through launchd, crontab, or Windows Task Scheduler."
       },
       {
         "icon": "📊",
         "title": "Health dashboard",
-        "description": "SLI metrics: sync frequency, drift count, source reachability, active assistants."
+        "description": "Reports sync frequency, drift, source reachability, and active coding harnesses."
       }
     ]
   },
@@ -140,56 +140,51 @@
     "heading": "Three source layouts, auto-detected",
     "canonical": {
       "title": "Canonical",
-      "description": "Flat files organized as <code>skills/</code>, <code>rules/</code>, <code>workflows/</code> — distributed and transformed per assistant."
+      "description": "Files organized as <code>skills/</code>, <code>rules/</code>, and <code>workflows/</code>. Forge distributes and transforms them for each coding harness."
     },
     "preStructured": {
       "title": "Pre-structured",
-      "description": "Contains assistant-specific directories (<code>.claude/</code>, <code>.cursor/</code>, etc.) — copied as-is without transforms."
+      "description": "Harness-specific directories such as <code>.claude/</code> and <code>.cursor/</code>, copied without transforms."
     },
     "hybrid": {
       "title": "Hybrid",
-      "description": "Mix of both — canonical files transformed and distributed; pre-structured files copied directly. Auto-detected by default."
+      "description": "Canonical resources transformed for each harness alongside pre-structured files copied directly."
     }
   },
   "compiler": {
-    "heading": "Coming next: Forge becomes the Harness Compiler",
-    "description": "Same <code>forge</code> CLI you already use — but under the hood, a full compiler pipeline. Other tools install files. Forge will <strong>compile</strong> your AI environment.",
+    "heading": "Roadmap: plugins in v0.8. Compiler in v0.9.",
+    "description": "Forge v0.7.0 is the current release. The next milestones add native plugin delivery and then a compiler for coding-harness context. These capabilities are planned, not shipped.",
     "items": [
       {
-        "icon": "🌳",
-        "title": "Dependency graph",
-        "description": "Skills declare dependencies via frontmatter. Forge resolves the full DAG, detects cycles, and orders output correctly."
-      },
-      {
-        "icon": "✂️",
-        "title": "Tree-shaking",
-        "description": "Java project? Python skills are automatically excluded. Forge detects project context from marker files and prunes irrelevant skills."
+        "icon": "📦",
+        "title": "v0.8 · Plugin packages",
+        "description": "Package skills, commands, agents, hooks, MCP servers, rules, and output styles with Agent Plugins 1.0."
       },
       {
         "icon": "🎯",
-        "title": "Per-agent optimization",
-        "description": "Claude Code gets priority-ordered individual files. Cursor gets merged rule files. Each agent gets skills in its optimal format."
+        "title": "v0.8 · Droid and Claude Code",
+        "description": "Deliver packages through both harnesses' native plugin systems first. Other harnesses follow in later waves."
       },
       {
-        "icon": "📊",
-        "title": "Token budgeting",
-        "description": "Set per-agent context limits. When total exceeds budget, lowest-priority skills are dropped first. Dependencies are always protected."
+        "icon": "🔐",
+        "title": "v0.8 · Locked installs",
+        "description": "Use local or pinned Git sources. Record resolved commits, content hashes, per-harness output hashes, and variants in a lockfile."
       },
       {
-        "icon": "📦",
-        "title": "Build manifest",
-        "description": "Every compile emits a manifest — skill IDs, versions, hashes, agent targets, token estimates. This is Ember's data source."
+        "icon": "🔀",
+        "title": "v0.8.x · Plugin workflow",
+        "description": "Add plugin add, remove, update, and list commands, drift reporting, marketplace catalogs, and harness load checks."
       },
       {
-        "icon": "🌐",
-        "title": "Smithery integration",
-        "description": "Pull skills from agentskills.io as a source. Their 25k-star skill ecosystem becomes compiler input."
+        "icon": "🌳",
+        "title": "v0.9 · Compiler",
+        "description": "Compile context for coding harnesses after plugin delivery. The compiler specification is planned separately; its detailed capabilities are not yet approved."
       }
     ]
   },
   "cta": {
-    "heading": "Ready to get started?",
-    "description": "Install Forge, run <code>forge init</code>, and sync your first config in under 2 minutes. The compiler features are coming in v0.7.",
+    "heading": "Install Forge v0.7.0",
+    "description": "Available through npm, Homebrew, and Scoop. Run <code>forge init</code>, choose a source, and preview your first sync.",
     "button": "Quick Start Guide →"
   }
 }

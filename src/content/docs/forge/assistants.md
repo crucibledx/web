@@ -1,13 +1,13 @@
 ---
-title: Supported Assistants
-description: What Forge does for each AI assistant.
+title: Supported Coding Harnesses
+description: What Forge does for each coding harness.
 ---
 
-Forge supports 5 AI assistants. Each has different config paths, directory structures, and file formats. Forge handles the differences automatically.
+Forge supports 5 coding harnesses. Each has different config paths, directory structures, and file formats. Forge handles the differences automatically.
 
-## Assistant comparison
+## Harness comparison
 
-| Assistant          | Project Paths                                              | Transforms                               |
+| Harness            | Project Paths                                              | Transforms                               |
 | ------------------ | ---------------------------------------------------------- | ---------------------------------------- |
 | **Claude Code**    | `.claude/skills/`, `.claude/rules/`, `.claude/commands/`   | None (passthrough)                       |
 | **Cursor**         | `.cursor/rules/`                                           | `.md` → `.mdc` + frontmatter             |
@@ -15,7 +15,7 @@ Forge supports 5 AI assistants. Each has different config paths, directory struc
 | **GitHub Copilot** | `.github/skills/`, `.github/instructions/`                 | `.md` → `.instructions.md` + frontmatter |
 | **Cline**          | `.cline/skills/`, `.clinerules/`, `.clinerules/workflows/` | None (passthrough)                       |
 
-## Per-assistant details
+## Per-harness details
 
 ### Claude Code
 
@@ -85,9 +85,9 @@ Cline uses standard Markdown. No transforms needed.
 
 - `~/Cline/Rules/`, `~/Cline/Workflows/`
 
-## Adding a new assistant
+## Adding a new coding harness
 
-Adding a new assistant requires one file and one registry entry:
+Adding a new coding harness requires one file and one registry entry:
 
 1. Create `domain/assistants/<name>/index.ts` with the `AssistantDefinition`
 2. Add the entry to `registry.ts`

@@ -8,7 +8,7 @@
 |--------------------------------------------|--------------------|----------------|
 | **Forge CLI**                              | `/forge`           | ✅ Shipped     |
 | **Forge Skills Starter**                   | `/starter`         | ✅ Shipped     |
-| **Ember**                                  | `/ember`           | 🚧 Coming Soon |
+| **Ember**                                  | `/ember`           | 🚧 In development |
 | **Smelt / Anvil / Lathe / Foundry / Cast** | `/about` (roadmap) | 📋 Planned     |
 
 ## Stack

@@ -7,7 +7,7 @@ The Forge Skills Starter is an **AI Resources Lifecycle Platform** — a convent
 
 ## What is an AI Resource?
 
-An AI resource is any artifact that shapes how an AI assistant behaves — a skill, a rule, a workflow, or an agent definition. Resources are versioned, tested, and delivered to developer environments through structured conventions.
+An agent resource is any artifact that shapes how a coding harness behaves — a skill, a rule, a workflow, or an agent definition. Resources are versioned, tested, and delivered to developer environments through structured conventions.
 
 The platform treats resources as first-class engineering artifacts with a full lifecycle: design → develop → test → release → deliver.
 
@@ -75,7 +75,7 @@ backend/      # Backend team — /review-api, /database-migration, api-conventio
 infra/        # Infra team — /review-terraform, /incident-runbook, terraform-conventions
 ```
 
-Each team folder contains a full canonical layout (`skills/`, `rules/`, `workflows/`). With Forge, each team points their source at the repo with a `subdirectory` filter or uses `include`/`exclude` globs for fine-grained control:
+Each team folder contains a full canonical layout (`skills/`, `rules/`, `workflows/`). With Forge, each team points their source at a repository `path` or uses `include`/`exclude` globs for fine-grained control:
 
 ```yaml
 # Frontend team's forge config
@@ -84,13 +84,13 @@ sources:
     type: git
     url: https://github.com/your-org/forge-skills-starter.git
     branch: example/monorepo
-    subdirectory: shared
+    path: shared
 
   - name: frontend
     type: git
     url: https://github.com/your-org/forge-skills-starter.git
     branch: example/monorepo
-    subdirectory: frontend
+    path: frontend
 ```
 
 ## Using with Forge
@@ -102,7 +102,7 @@ forge init
 # → Select "git" source → paste your fork's URL
 
 forge sync
-# → Skills placed for each AI tool automatically
+# → Skills placed for each supported coding harness
 ```
 
-Forge auto-detects the canonical layout and handles format transforms per assistant.
+Forge auto-detects the canonical layout and handles format transforms per harness.
