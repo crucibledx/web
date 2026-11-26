@@ -49,7 +49,7 @@ Codex and Copilot plugin delivery is planned for v0.10. Cursor, Devin, OpenCode,
 
 **Status:** in development, not released.
 
-Ember is a custom OpenTelemetry Collector distribution written in Go. It connects agent session trees across processes, machines, and coding harnesses, then exports standard OTLP to an existing backend.
+Ember is a custom OpenTelemetry Collector distribution written in Go. It reconstructs session and workstream trees across processes and machines, groups cross-harness work with `ember.work.id`, and exports standard OTLP to an existing backend.
 
 | Milestone | Scope                                                                                                                      |
 | --------- | -------------------------------------------------------------------------------------------------------------------------- |

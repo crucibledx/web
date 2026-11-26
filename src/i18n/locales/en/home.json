@@ -5,7 +5,7 @@
   },
   "hero": {
     "headline": "Ship shared context. Trace agent work.",
-    "subheadline": "Crucible builds open-source infrastructure for coding harnesses. Forge distributes skills, rules, and workflows across your tools. Ember connects agent sessions, subagents, and tool calls as OpenTelemetry traces.",
+    "subheadline": "Crucible builds open-source infrastructure for coding harnesses. Forge distributes skills, rules, and workflows across your tools. Ember reconstructs agent session trees and groups cross-harness work with ember.work.id.",
     "ctaPrimary": "Get Started →",
     "ctaSecondary": "GitHub →",
     "terminalDemo": "forge sync"
@@ -25,7 +25,7 @@
     "visibility": {
       "icon": "🔍",
       "title": "Agent work crosses session boundaries",
-      "description": "Orchestrators, agents, subagents, and tool calls produce disconnected telemetry. Ember is building one trace tree across harnesses."
+      "description": "Orchestrators, agents, subagents, and tool calls produce disconnected telemetry. Ember reconstructs each session or workstream tree and groups cross-harness work with ember.work.id."
     }
   },
   "howItWorks": {

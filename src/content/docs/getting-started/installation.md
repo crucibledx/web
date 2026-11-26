@@ -18,7 +18,7 @@ scoop install forge
 
 ## npm / bun
 
-Requires the [Bun](https://bun.sh) runtime.
+Requires [Bun](https://bun.sh) 1.4.2 or later.
 
 ```bash
 bun add -g @crucibledx/forge-cli
@@ -47,7 +47,7 @@ forge --version
 
 - **macOS**, **Linux**, or **Windows**
 - Standalone binaries have no runtime dependencies
-- The npm package requires the [Bun](https://bun.sh) runtime
+- The npm package requires [Bun](https://bun.sh) 1.4.2 or later
 
 ## What's next
 

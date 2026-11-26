@@ -28,8 +28,8 @@ forge sync --silent   # suppress output (for scheduled runs)
 
 - Multi-source parallel fetching via `Promise.allSettled`
 - SHA-256 change detection — only writes when content changed
-- Per-file error recovery — failed files don't abort the sync
-- Rollback on mutation failure
+- Fail-closed acquisition and planning — errors abort before protected writes
+- Compensating rollback on mutation failure, with explicit incomplete-recovery reporting
 
 ### `forge status`
 

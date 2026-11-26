@@ -57,7 +57,7 @@ A convention-based template for building, testing, and delivering agent skills, 
 
 Ember is OpenTelemetry for coding agents. It is written in Go as a custom OpenTelemetry Collector distribution.
 
-One binary runs as an agent on each machine, with an optional gateway for merging machines. Harness adapters combine native telemetry with local session records. Deterministic IDs connect sessions, subagents, and tool calls into trace trees across processes and machines.
+One binary runs as an agent on each machine, with an optional gateway for merging machines. Harness adapters combine native telemetry with local session records. Deterministic IDs connect sessions, subagents, and tool calls into one trace tree per session or workstream across processes and machines.
 
 The v1 design includes:
 

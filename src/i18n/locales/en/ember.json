@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Ember — OpenTelemetry for Coding Agents — Crucible",
-    "description": "Ember is a Go OpenTelemetry Collector distribution that connects agent session trees across coding harnesses. In development."
+    "description": "Ember is a Go OpenTelemetry Collector distribution that reconstructs agent session trees and groups cross-harness work with ember.work.id. In development."
   },
   "hero": {
     "badge": "In development",
-    "headline": "One trace tree for agent work.",
-    "subheadline": "Ember connects sessions, subagents, and tool calls across processes, machines, and coding harnesses. It exports standard OTLP to your existing backend. Content capture is off by default."
+    "headline": "Session trees. Connected agent work.",
+    "subheadline": "Ember reconstructs session and workstream trees across processes and machines. It groups related work across coding harnesses with ember.work.id and exports standard OTLP to your existing backend. Content capture is off by default."
   },
   "problem": {
     "heading": "Agent telemetry loses the session tree",
