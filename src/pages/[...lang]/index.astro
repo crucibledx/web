@@ -4,6 +4,7 @@ import Hero from '../../components/Hero.astro'
 import ProductCard from '../../components/ProductCard.astro'
 import SupportedTools from '../../components/SupportedTools.astro'
 import FeatureGrid from '../../components/FeatureGrid.astro'
+import SectionHeading from '../../components/SectionHeading.astro'
 import {getLocalePaths, useTranslations} from '../../i18n'
 import {demos} from '../../lib/assets'
 import type {LocaleProps} from '../../i18n'
@@ -28,87 +29,68 @@ const t = useTranslations(locale, 'home')
     }}
   />
 
-  <!-- Problem Statement -->
-  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
-    <div class="mx-auto max-w-7xl">
-      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('problem.heading')}</h2>
-      <FeatureGrid
-        columns={3}
-        features={[
-          {
-            icon: t('problem.scattered.icon'),
-            title: t('problem.scattered.title'),
-            description: t('problem.scattered.description'),
-          },
-          {
-            icon: t('problem.drift.icon'),
-            title: t('problem.drift.title'),
-            description: t('problem.drift.description'),
-          },
-          {
-            icon: t('problem.visibility.icon'),
-            title: t('problem.visibility.title'),
-            description: t('problem.visibility.description'),
-          },
-        ]}
-      />
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="px-6 py-16">
-    <div class="mx-auto max-w-7xl">
-      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.heading')}</h2>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div class="text-center">
-          <div
-            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
-          >
-            1
-          </div>
-          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step1.title')}</h3>
-          <p class="text-sm text-steel-500 dark:text-steel-400">
-            {t('howItWorks.step1.description')}
-          </p>
-        </div>
-        <div class="text-center">
-          <div
-            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
-          >
-            2
-          </div>
-          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step2.title')}</h3>
-          <p class="text-sm text-steel-500 dark:text-steel-400">
-            {t('howItWorks.step2.description')}
-          </p>
-        </div>
-        <div class="text-center">
-          <div
-            class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-molten-100 text-xl font-bold text-molten-700 dark:bg-molten-900/30 dark:text-molten-400"
-          >
-            3
-          </div>
-          <h3 class="mb-2 font-bold text-steel-900 dark:text-steel-100">{t('howItWorks.step3.title')}</h3>
-          <p class="text-sm text-steel-500 dark:text-steel-400">
-            {t('howItWorks.step3.description')}
-          </p>
-        </div>
+  <section class="marketing-section marketing-section-muted">
+    <div class="marketing-container">
+      <SectionHeading heading={t('problem.heading')} />
+      <div class="mt-10">
+        <FeatureGrid
+          columns={3}
+          features={[
+            {
+              icon: t('problem.scattered.icon'),
+              title: t('problem.scattered.title'),
+              description: t('problem.scattered.description'),
+            },
+            {
+              icon: t('problem.drift.icon'),
+              title: t('problem.drift.title'),
+              description: t('problem.drift.description'),
+            },
+            {
+              icon: t('problem.visibility.icon'),
+              title: t('problem.visibility.title'),
+              description: t('problem.visibility.description'),
+            },
+          ]}
+        />
       </div>
     </div>
   </section>
 
-  <!-- Supported Tools -->
-  <section class="border-t border-steel-200 bg-steel-50 px-6 py-16 dark:border-steel-800 dark:bg-steel-900">
-    <div class="mx-auto max-w-7xl">
+  <section class="marketing-section">
+    <div class="marketing-container">
+      <SectionHeading heading={t('howItWorks.heading')} />
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-0">
+        {
+          [1, 2, 3].map((step) => (
+            <div class="relative border-l border-steel-200 pl-6 md:pr-8 dark:border-steel-800">
+              <div class="absolute top-0 -left-[5px] h-2.5 w-2.5 rounded-full bg-molten-500" />
+              <span class="font-mono text-xs font-semibold tracking-[0.16em] text-molten-600 dark:text-molten-400">
+                0{step}
+              </span>
+              <h3 class="mt-3 text-lg font-semibold tracking-tight text-steel-950 dark:text-steel-50">
+                {t(`howItWorks.step${step}.title`)}
+              </h3>
+              <p class="mt-2 text-sm leading-6 text-steel-600 dark:text-steel-300">
+                {t(`howItWorks.step${step}.description`)}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="marketing-section marketing-section-muted">
+    <div class="marketing-container">
       <SupportedTools heading={t('tools.heading')} footer={t('tools.more')} />
     </div>
   </section>
 
-  <!-- Products -->
-  <section class="px-6 py-16">
-    <div class="mx-auto max-w-7xl">
-      <h2 class="mb-10 text-center text-2xl font-bold text-steel-900 dark:text-steel-100">{t('ecosystem.heading')}</h2>
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+  <section class="marketing-section">
+    <div class="marketing-container">
+      <SectionHeading heading={t('ecosystem.heading')} />
+      <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         <ProductCard
           name={t('ecosystem.forge.name')}
           description={t('ecosystem.forge.description')}
@@ -134,10 +116,10 @@ const t = useTranslations(locale, 'home')
           badge={t('ecosystem.ember.badge')}
         />
       </div>
-      <p class="mt-8 text-center text-sm text-steel-400 dark:text-steel-500">
+      <p class="mt-8 text-sm leading-6 text-steel-500 dark:text-steel-400">
         {t('ecosystem.more').split('{link}')[0]}<a
           href="/about"
-          class="text-molten-500 hover:text-molten-700 dark:text-molten-400 dark:hover:text-molten-200"
+          class="font-medium text-molten-600 hover:text-molten-700 dark:text-molten-400 dark:hover:text-molten-300"
           >{t('ecosystem.roadmapLink')}</a
         >{t('ecosystem.more').split('{link}')[1]}
       </p>

@@ -1,12 +1,18 @@
 @theme {
   /* Custom brand tokens */
-  --color-molten-100: #ffd580;
-  --color-molten-200: #ffa940;
-  --color-molten-400: #ff6b1a;
+  --color-molten-50: #fff7ed;
+  --color-molten-100: #ffedd5;
+  --color-molten-200: #fed7aa;
+  --color-molten-300: #fdba74;
+  --color-molten-400: #ff8c26;
   --color-molten-500: #e84d00;
-  --color-molten-700: #c13800;
-  --color-molten-900: #7a1f00;
+  --color-molten-600: #c2410c;
+  --color-molten-700: #9a3412;
+  --color-molten-800: #7a1f00;
+  --color-molten-900: #5c1700;
+  --color-molten-950: #3d0f00;
 
+  --color-steel-50: #f8fafc;
   --color-steel-100: #e2e8f0;
   --color-steel-200: #cbd5e0;
   --color-steel-300: #a0aec0;

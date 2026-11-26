@@ -22,25 +22,25 @@ const navLinks = [
 ---
 
 <header
-  class="sticky top-0 z-50 border-b border-steel-200 bg-white/90 backdrop-blur dark:border-steel-800 dark:bg-steel-950/90"
+  class="sticky top-0 z-50 border-b border-steel-200/80 bg-white/80 backdrop-blur-xl dark:border-steel-800/80 dark:bg-steel-950/80"
 >
-  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+  <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
     <a
       href={`${prefix}/`}
-      class="flex items-center gap-2 text-lg font-bold tracking-tight text-steel-900 dark:text-steel-100"
+      class="flex items-center gap-2.5 text-base font-semibold tracking-[-0.02em] text-steel-950 dark:text-steel-50"
     >
       <img src={logoLight.src} alt="Crucible" width="28" height="28" class="shrink-0 rounded-full dark:hidden" />
       <img src={logoDark.src} alt="Crucible" width="28" height="28" class="hidden shrink-0 rounded-full dark:block" />
       Crucible
     </a>
 
-    <ul class="hidden items-center gap-6 md:flex">
+    <ul class="hidden items-center gap-1 md:flex">
       {
         navLinks.map(({label, href}) => (
           <li>
             <a
               href={href}
-              class="text-sm font-medium text-steel-500 transition-colors hover:text-molten-500 dark:text-steel-300 dark:hover:text-molten-400"
+              class="rounded-lg px-3 py-2 text-sm font-medium text-steel-600 transition-colors hover:bg-steel-100 hover:text-steel-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-molten-500 dark:text-steel-300 dark:hover:bg-steel-900 dark:hover:text-steel-50"
             >
               {label}
             </a>
@@ -55,6 +55,7 @@ const navLinks = [
         href="https://github.com/crucibledx"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={t('footer.github')}
         class="text-steel-400 transition-colors hover:text-steel-900 dark:hover:text-steel-100"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -114,6 +115,8 @@ const navLinks = [
         id="mobile-menu-toggle"
         type="button"
         aria-label={t('nav.toggleMenu')}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
         class="rounded-lg p-2 text-steel-400 transition-colors hover:bg-steel-100 hover:text-steel-900 dark:hover:bg-steel-800 dark:hover:text-steel-100 md:hidden"
       >
         <svg
@@ -171,6 +174,7 @@ const navLinks = [
   const menuToggle = document.getElementById('mobile-menu-toggle')
   const mobileMenu = document.getElementById('mobile-menu')
   menuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden')
+    const isOpen = mobileMenu?.classList.toggle('hidden') === false
+    menuToggle.setAttribute('aria-expanded', String(isOpen))
   })
 </script>

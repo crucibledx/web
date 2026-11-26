@@ -9,31 +9,31 @@ interface Props {
 const {heading = 'Native output for coding harnesses', footer = 'More harness support is planned.'} = Astro.props
 ---
 
-<div class="text-center">
-  <p class="mb-6 text-sm font-medium uppercase tracking-wider text-steel-400 dark:text-steel-500">
+<div class="marketing-panel px-6 py-8 md:px-10">
+  <p class="text-center font-mono text-xs font-semibold tracking-[0.14em] text-steel-500 uppercase dark:text-steel-400">
     {heading}
   </p>
-  <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-    <div class="flex items-center gap-2.5">
+  <div class="mt-8 grid grid-cols-2 gap-x-4 gap-y-7 sm:grid-cols-3 lg:grid-cols-5">
+    <div class="flex items-center justify-center gap-2.5">
       <Icon name="meteor-icons:claude-code" class="h-6 w-6 shrink-0 text-[#D97706]" />
-      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Claude Code</span>
+      <span class="text-sm font-medium text-steel-700 dark:text-steel-200">Claude Code</span>
     </div>
-    <div class="flex items-center gap-2.5">
+    <div class="flex items-center justify-center gap-2.5">
       <Icon name="bxl:cursor-ai" class="h-6 w-6 shrink-0 text-[#8B5CF6]" />
-      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Cursor</span>
+      <span class="text-sm font-medium text-steel-700 dark:text-steel-200">Cursor</span>
     </div>
-    <div class="flex items-center gap-2.5">
+    <div class="flex items-center justify-center gap-2.5">
       <Icon name="bxl:windsurf" class="h-6 w-6 shrink-0 text-[#06B6D4]" />
-      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Windsurf</span>
+      <span class="text-sm font-medium text-steel-700 dark:text-steel-200">Windsurf</span>
     </div>
-    <div class="flex items-center gap-2.5">
+    <div class="flex items-center justify-center gap-2.5">
       <Icon name="bxl:github-copilot" class="h-6 w-6 shrink-0 text-[#6366F1]" />
-      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">GitHub Copilot</span>
+      <span class="text-sm font-medium text-steel-700 dark:text-steel-200">GitHub Copilot</span>
     </div>
-    <div class="flex items-center gap-2.5">
+    <div class="col-span-2 flex items-center justify-center gap-2.5 sm:col-span-1">
       <Icon name="simple-icons:cline" class="h-6 w-6 shrink-0 text-[#10B981]" />
-      <span class="text-sm font-medium text-steel-600 dark:text-steel-300">Cline</span>
+      <span class="text-sm font-medium text-steel-700 dark:text-steel-200">Cline</span>
     </div>
   </div>
-  <p class="mt-4 text-xs text-steel-400 dark:text-steel-500">{footer}</p>
+  <p class="mt-8 text-center text-xs leading-5 text-steel-500 dark:text-steel-400">{footer}</p>
 </div>
