@@ -9,18 +9,18 @@ interface Props {
 const {title = 'Terminal demo', darkSrc, lightSrc, alt = 'Terminal demo'} = Astro.props
 ---
 
-<div class="mx-auto max-w-3xl overflow-hidden rounded-lg border border-steel-200 shadow-lg dark:border-steel-700">
-  <div
-    class="flex items-center gap-2 border-b border-steel-200 bg-steel-100 px-4 py-2.5 dark:border-steel-700 dark:bg-steel-800"
-  >
-    <div class="flex gap-1.5">
-      <span class="h-3 w-3 rounded-full bg-red-400"></span>
-      <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
-      <span class="h-3 w-3 rounded-full bg-green-400"></span>
+<div
+  class="mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border border-steel-700 bg-steel-950 shadow-[0_24px_70px_rgb(13_17_23/0.18)] ring-1 ring-steel-950/5 dark:shadow-[0_24px_80px_rgb(0_0_0/0.35)]"
+>
+  <div class="flex items-center gap-3 border-b border-steel-800 bg-steel-950 px-4 py-3">
+    <div class="flex gap-1.5" aria-hidden="true">
+      <span class="h-2.5 w-2.5 rounded-full bg-steel-600"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-steel-600"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-molten-500"></span>
     </div>
-    <span class="ml-2 text-xs font-medium text-steel-400 dark:text-steel-500">{title}</span>
+    <span class="truncate font-mono text-xs text-steel-400">{title}</span>
   </div>
-  <div class="bg-steel-900 dark:bg-steel-950">
+  <div class="bg-steel-950">
     <img src={lightSrc} alt={alt} class="w-full dark:hidden" loading="lazy" />
     <img src={darkSrc} alt={alt} class="hidden w-full dark:block" loading="lazy" />
   </div>

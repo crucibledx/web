@@ -1,13 +1,94 @@
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
 @import '@astrojs/starlight-tailwind';
 @import './tokens.css';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer components {
+  .marketing-section {
+    @apply border-t border-steel-200/80 px-6 py-16 md:py-24 dark:border-steel-800/80;
+  }
+
+  .marketing-section-muted {
+    @apply bg-steel-50/80 dark:bg-steel-900/35;
+  }
+
+  .marketing-container {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .marketing-panel {
+    @apply rounded-2xl border border-steel-200/90 bg-white shadow-[0_1px_2px_rgb(13_17_23/0.04)] dark:border-steel-800 dark:bg-steel-900/70;
+  }
+
+  .marketing-table-wrap {
+    @apply mt-10 overflow-x-auto rounded-2xl border border-steel-200/90 bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-molten-500 dark:border-steel-800 dark:bg-steel-900/70;
+  }
+
+  .marketing-table {
+    @apply w-full min-w-[42rem] text-left text-sm leading-6;
+  }
+
+  .marketing-table thead {
+    @apply bg-steel-50 dark:bg-steel-950/50;
+  }
+
+  .marketing-table th {
+    @apply px-5 py-3.5 font-mono text-xs font-semibold tracking-wide text-steel-500 uppercase dark:text-steel-400;
+  }
+
+  .marketing-table td {
+    @apply border-t border-steel-100 px-5 py-4 align-top text-steel-600 dark:border-steel-800 dark:text-steel-300;
+  }
+
+  .code-panel {
+    @apply overflow-x-auto rounded-xl border border-steel-700 bg-steel-950 px-5 py-4 font-mono text-sm leading-7 text-steel-100 shadow-inner;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-molten-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_1px_2px_rgb(13_17_23/0.12)] transition hover:bg-molten-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-molten-500;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-steel-300 bg-white/80 px-5 py-2.5 text-sm font-semibold text-steel-700 transition hover:border-steel-400 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-steel-400 dark:border-steel-700 dark:bg-steel-900/70 dark:text-steel-200 dark:hover:border-steel-600 dark:hover:bg-steel-900;
+  }
+}
+
+.marketing-content {
+  background: radial-gradient(circle at 85% 0%, rgb(232 77 0 / 0.04), transparent 28rem), #fff;
+}
+
+.dark .marketing-content {
+  background: radial-gradient(circle at 85% 0%, rgb(255 140 38 / 0.05), transparent 30rem), #0d1117;
+}
+
+.hero-backdrop {
+  background-image:
+    linear-gradient(to right, rgb(113 128 150 / 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(113 128 150 / 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 15% 25%, rgb(232 77 0 / 0.09), transparent 32rem);
+  background-size:
+    56px 56px,
+    56px 56px,
+    auto;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.dark .hero-backdrop {
+  background-image:
+    linear-gradient(to right, rgb(160 174 192 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(160 174 192 / 0.07) 1px, transparent 1px),
+    radial-gradient(circle at 15% 25%, rgb(232 77 0 / 0.12), transparent 32rem);
+}
+
+.marketing-content ::selection {
+  background: rgb(253 186 116 / 0.55);
+}
+
 /* Inline code/strong styling for marketing pages (rendered via set:html from i18n JSON) */
 .marketing-content code:not([class]) {
-  @apply rounded bg-steel-100 px-1 py-0.5 text-xs font-mono dark:bg-steel-700;
+  @apply rounded bg-steel-100 px-1 py-0.5 font-mono text-xs text-steel-700 dark:bg-steel-700 dark:text-steel-100;
 }
 .marketing-content strong:not([class]) {
   @apply text-steel-900 dark:text-steel-100;
