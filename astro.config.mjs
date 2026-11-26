@@ -43,7 +43,7 @@ export default defineConfig({
           items: [
             {label: 'Commands', slug: 'forge/commands'},
             {label: 'Configuration', slug: 'forge/configuration'},
-            {label: 'Assistants', slug: 'forge/assistants'},
+            {label: 'Coding Harnesses', slug: 'forge/assistants'},
             {label: 'Sources & Layouts', slug: 'forge/sources'},
             {label: 'Architecture', slug: 'forge/architecture'},
           ],

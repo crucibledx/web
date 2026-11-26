@@ -117,7 +117,7 @@
     "description": "The platform is an abstract idea that structures your AI resources and helps you manage them. That's it. How you deliver them to developers is entirely up to you.",
     "forge": {
       "title": "Forge CLI",
-      "description": "Recommended. Set-and-forget sync with auto-transforms for every AI tool. The easiest path."
+      "description": "Recommended. Scheduled sync with native paths and transforms for every supported coding harness."
     },
     "submodules": {
       "title": "Git submodules",

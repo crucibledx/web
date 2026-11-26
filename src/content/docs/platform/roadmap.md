@@ -1,91 +1,68 @@
 ---
 title: Roadmap
-description: Crucible platform development phases and timeline.
+description: Current releases and planned Forge and Ember milestones.
 ---
 
-## Phased build sequence
+## Current releases
 
-![Product Phases](https://github.com/crucibledx/assets/raw/main/crucible/diagrams/light/product-phases.svg)
+| Product              | Version          | Status      | Capabilities                                                      |
+| -------------------- | ---------------- | ----------- | ----------------------------------------------------------------- |
+| Forge CLI            | v0.7.0           | ✅ Released | Skills, rules, and workflows sync for five coding harnesses       |
+| Forge Skills Starter | Current template | ✅ Released | Resource development conventions, meta-skills, and test specimens |
 
-### Phase 1: Foundation ✅
+Forge v0.7.0 is available through npm, Homebrew, and Scoop. Standalone binaries and an install script are also available.
 
-**Focus:** Get Forge CLI to production quality. Ship publicly. Build initial community.
+## Forge roadmap
 
-| Milestone                              | Status      |
-| -------------------------------------- | ----------- |
-| Forge CLI v0.6 (production-ready)      | ✅ Complete |
-| Skills Starter v0.6 (feature-complete) | ✅ Complete |
-| Website (crucibledx.dev)               | ✅ Complete |
-| npm publish (@crucibledx/forge-cli)    | ✅ Complete |
-| Public GitHub repos                    | ✅ Complete |
-| CI/CD (GitHub Actions)                 | ✅ Complete |
-| Homebrew tap + Scoop bucket            | ✅ Complete |
+### v0.8 — Plugin packages and delivery
 
-### Phase 2: Context Compiler (current)
+**Status:** approved design, not released.
 
-**Focus:** Evolve Forge from a file copier to a context compiler. Ship Ember MVP.
+The first plugin release targets Droid and Claude Code through their native plugin systems.
 
-> "Other tools install files. Forge compiles your AI environment."
+- Agent Plugins 1.0 packages for skills, commands, agents, hooks, MCP servers, rules, and output styles
+- Local sources and Git sources pinned to resolved commits
+- Lockfiles with content hashes, per-harness output hashes, and deterministic variants
+- Portability reports for harness-specific adaptations and unsupported components
+- Transactional installation and keyed merges that preserve user settings
 
-Each compiler feature ships as its own Forge version with room for patch releases:
+### v0.8.x — Plugin workflow and verification
 
-| Version     | Feature                                  | Status         |
-| ----------- | ---------------------------------------- | -------------- |
-| Forge v0.7  | Smithery/agentskills.io source adapter   | 🟡 In progress |
-| Forge v0.8  | Skill frontmatter schema + parser        | ⬜ Designed    |
-| Forge v0.9  | Skill graph + dependency resolution      | ⬜ Designed    |
-| Forge v0.10 | Project context detection + tree-shaking | ⬜ Designed    |
-| Forge v0.11 | Token budgeting + priority ordering      | ⬜ Designed    |
-| Forge v0.12 | Per-agent emitters (compile targets)     | ⬜ Designed    |
-| Forge v0.13 | Manifest generation (Ember bridge)       | ⬜ Designed    |
-| Ember v0.1  | Manifest reader + CLI report             | ⬜ Designed    |
-| Ember v0.2  | Multi-project discovery + aggregation    | ⬜ Designed    |
-| Ember v0.3  | OTLP export + Grafana dashboard pack     | ⬜ Designed    |
+**Status:** planned as part of v0.8, before compiler work starts.
 
-### Phase 3: Observability + Integrations
+- `forge plugin add`, `remove`, `update`, and `list`
+- Plugin drift reporting in `forge status` and `forge health`
+- `forge marketplace emit` and `--check` for Droid and Claude Code catalogs
+- Load checks through each harness's own CLI, without model calls or API keys
 
-**Focus:** Grow Ember with external integrations. Drive adoption through existing communities.
+### v0.9 — Compiler
 
-| Version      | Feature                                         | Status    |
-| ------------ | ----------------------------------------------- | --------- |
-| Ember v0.4   | Langfuse + Helicone integration                 | ⬜ Future |
-| Ember v0.5   | Agent OTEL + file watchers (Claude Code, Cline) | ⬜ Future |
-| Ember v0.6+  | Cursor/Windsurf/Copilot watchers                | ⬜ Future |
-| Forge v0.14+ | Code-splitting, incremental compilation         | ⬜ Future |
+**Status:** roadmap. The compiler specification is planned separately.
 
-### Phase 4: Platform + Ecosystem
+Forge will add a compiler for coding-harness context after plugin delivery. Detailed compiler capabilities are not approved yet and are not presented as current product features.
 
-**Focus:** Extract shared infrastructure. Enable third-party plugins.
+### Later harness waves
 
-| Milestone                            | Status    |
-| ------------------------------------ | --------- |
-| @crucibledx/ember standalone package | ⬜ Future |
-| @crucibledx/smelt extraction         | ⬜ Future |
-| @crucibledx/anvil SDK                | ⬜ Future |
-| Lathe MCP server                     | ⬜ Future |
-| Foundry registry                     | ⬜ Future |
-| Cast frontend CLI                    | ⬜ Future |
+Codex and Copilot plugin delivery is planned for v0.10. Cursor, Devin, OpenCode, Kilo, Cline, and custom harness support is planned for later waves.
 
-## Architecture decisions
+## Ember v1
 
-| Decision              | Choice                  | Rationale                                                  |
-| --------------------- | ----------------------- | ---------------------------------------------------------- |
-| Platform architecture | Path C (shared library) | Engineering leverage + community cohesion                  |
-| Language              | TypeScript/Bun          | Fast iteration, single binary via compile                  |
-| Plugin protocol       | stdin/stdout JSON       | Language-agnostic, easy to test                            |
-| License               | MIT                     | Maximum adoption                                           |
-| Compiler pipeline     | In-process, pure domain | Parse → Analyze → Optimize → Emit, all pure functions      |
-| Ember data source     | Forge compiler manifest | No instrumentation needed — build output as telemetry      |
-| Smelt extraction      | Deferred                | Don't extract from one consumer                            |
-| Go rewrite            | Killed                  | TypeScript/Bun works, plugin protocol is language-agnostic |
+**Status:** in development, not released.
 
-## Codebase metrics (Forge CLI v0.6.24)
+Ember is a custom OpenTelemetry Collector distribution written in Go. It connects agent session trees across processes, machines, and coding harnesses, then exports standard OTLP to an existing backend.
 
-| Metric                   | Value                          |
-| ------------------------ | ------------------------------ |
-| Production code          | 6,369 LOC across 144 files     |
-| Unit tests               | 6,700 LOC across 52 test files |
-| E2E tests                | 4,440 LOC across 25 test files |
-| Total passing tests      | 687                            |
-| Test-to-production ratio | ~1.75:1                        |
-| Releases                 | 66 versions (v0.1.0 → v0.6.24) |
+| Milestone | Scope                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| M1        | Droid adapter, deterministic session trees, collector pipeline, usage metrics, privacy controls, setup and doctor commands |
+| M2        | Claude Code adapter, human attribution, and optional gateway mode                                                          |
+| M3        | Local observability stack, install scripts, and v0.1.0 release                                                             |
+
+The v1 design includes four Grafana dashboards: Agent tree, Overview, Tools and MCP, and Cost. Content capture is off by default.
+
+## Platform direction
+
+- Keep each product useful independently.
+- Integrate with coding harnesses instead of replacing them.
+- Export open protocols instead of requiring a Crucible-hosted backend.
+- Extract shared infrastructure only when another product needs it.
+- Keep all projects open source under MIT.

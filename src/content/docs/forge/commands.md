@@ -7,7 +7,7 @@ description: All 12 Forge CLI commands with descriptions and usage.
 
 ### `forge init`
 
-Interactive wizard that detects AI tools, configures sources, and writes `.crucible/forge.config.yaml`.
+Interactive wizard that detects coding harnesses, configures sources, and writes `.crucible/forge.config.yaml`.
 
 ```bash
 forge init          # interactive setup
@@ -16,7 +16,7 @@ forge init --force  # re-initialize existing config
 
 ### `forge sync`
 
-Fetches from all configured sources, resolves targets, and places files for each assistant.
+Fetches from all configured sources, resolves targets, and places files for each coding harness.
 
 ```bash
 forge sync            # sync all sources
@@ -51,7 +51,7 @@ SLI dashboard showing operational metrics.
 forge health
 ```
 
-Displays: last sync time, sync frequency, drift count, source reachability, active assistants, log and report statistics.
+Displays: last sync time, sync frequency, drift count, source reachability, active coding harnesses, log and report statistics.
 
 ## Configuration Commands
 

@@ -18,6 +18,8 @@ scoop install forge
 
 ## npm / bun
 
+Requires the [Bun](https://bun.sh) runtime.
+
 ```bash
 bun add -g @crucibledx/forge-cli
 # or: npm install -g @crucibledx/forge-cli
@@ -44,7 +46,8 @@ forge --version
 ## System requirements
 
 - **macOS**, **Linux**, or **Windows**
-- No runtime dependencies — Forge is a compiled single binary
+- Standalone binaries have no runtime dependencies
+- The npm package requires the [Bun](https://bun.sh) runtime
 
 ## What's next
 
@@ -56,7 +59,7 @@ forge init
 
 The interactive wizard will:
 
-1. Detect which AI assistants you have configured (Claude Code, Cursor, Windsurf, Copilot, Cline)
+1. Detect which coding harnesses you have configured (Claude Code, Cursor, Windsurf, Copilot, Cline)
 2. Ask you to configure a source (git repo or local path)
 3. Write `.crucible/forge.config.yaml`
 

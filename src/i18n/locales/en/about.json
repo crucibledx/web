@@ -5,7 +5,7 @@
   },
   "hero": {
     "headline": "Don't compete. Complete.",
-    "subheadline": "Crucible is a Developer Experience infrastructure platform — a collection of focused open-source tools that eliminate friction developers face with AI assistant configuration management across tools, repos, and teams."
+    "subheadline": "Crucible builds open-source tools that make coding harnesses work better. Forge distributes shared context. Ember connects agent telemetry across harnesses. Each product integrates with the tools and backends developers already use."
   },
   "metaphor": {
     "heading": "The metallurgy metaphor",
@@ -17,7 +17,7 @@
       {"name": "Lathe", "description": "— Precision shaping tool (MCP server wrapping forge commands)"},
       {"name": "Foundry", "description": "— Where you cast finished goods (plugin registry/marketplace)"},
       {"name": "Cast", "description": "— Pour into molds (frontend/embed scaffolding CLI)"},
-      {"name": "Ember", "description": "— The glow that shows where heat is (AI observability)"},
+      {"name": "Ember", "description": "— The glow that shows where heat is (agent observability)"},
       {"name": "Mesh", "description": "— Interlocking metal (config conflict resolution engine)"}
     ]
   },
@@ -26,7 +26,7 @@
     "items": [
       {
         "title": "Don't compete, complete",
-        "description": "Build the cross-tool coordination layer that no single AI vendor will build. Complement every tool, compete with none."
+        "description": "Build the cross-harness coordination layer that no single vendor will build. Complement every tool, compete with none."
       },
       {
         "title": "DX is the whole product",
@@ -46,11 +46,11 @@
       },
       {
         "title": "Cross-tool is the structural advantage",
-        "description": "No AI vendor will solve the multi-tool problem. The value is in the space between tools."
+        "description": "No harness vendor will solve the multi-harness problem. The value is in the space between tools."
       },
       {
         "title": "Platform outlasts any individual tool",
-        "description": "AI tools will come and go. The coordination infrastructure persists."
+        "description": "Coding harnesses will come and go. The coordination infrastructure persists."
       }
     ]
   },
@@ -60,11 +60,11 @@
     "thType": "Type",
     "thPurpose": "Purpose",
     "thStatus": "Status",
-    "footer": "Architecture: platform of focused CLIs sharing <code>@crucibledx/smelt</code>. See {link}.",
+    "footer": "Architecture: focused CLIs, with shared infrastructure where products need it. See {link}.",
     "architectureLink": "platform architecture",
     "items": [
-      {"name": "Forge", "type": "CLI", "purpose": "AI environment config sync", "status": "Shipped"},
-      {"name": "Ember", "type": "Collector", "purpose": "AI assistant observability", "status": "Researched"},
+      {"name": "Forge", "type": "CLI", "purpose": "Resource sync · v0.7.0", "status": "Shipped"},
+      {"name": "Ember", "type": "OTel Collector", "purpose": "Cross-harness agent tracing", "status": "In development"},
       {"name": "Smelt", "type": "Library", "purpose": "Shared plugin engine", "status": "Designed"},
       {"name": "Anvil", "type": "SDK", "purpose": "Plugin development SDK", "status": "Designed"},
       {"name": "Lathe", "type": "MCP Server", "purpose": "Forge commands as MCP tools", "status": "Designed"},
@@ -73,9 +73,9 @@
     ]
   },
   "architecture": {
-    "heading": "Path C: Platform of CLIs",
-    "description": "Three architecture paths were evaluated: a god-mode universal CLI, separate CLIs with no shared code, or a platform of focused CLIs sharing a plugin infrastructure library. Path C won.",
-    "diagramAlt": "Crucible Ecosystem — Platform of focused CLIs",
-    "caption": "Each product is independent enough to be useful alone, but shares infrastructure for engineering leverage, community cohesion, and a defensible moat."
+    "heading": "Path C: focused tools, shared infrastructure",
+    "description": "Crucible is a platform of focused CLIs rather than a universal CLI. TypeScript and Bun power Forge and the planned plugin-based products. Ember is the exception: Go and the OpenTelemetry Collector fit its telemetry pipeline.",
+    "diagramAlt": "Crucible ecosystem — focused tools for coding harnesses",
+    "caption": "Each product is useful alone. Shared code, files, and open protocols connect them without replacing coding harnesses or observability backends."
   }
 }

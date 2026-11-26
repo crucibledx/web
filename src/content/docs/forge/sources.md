@@ -5,7 +5,7 @@ description: Source types and layout detection in Forge.
 
 ## Source types
 
-Forge supports two source types for fetching AI configs.
+Forge supports two source types for fetching skills, rules, and workflows.
 
 ### Git source
 
@@ -61,11 +61,11 @@ source-repo/
     document-project.md
 ```
 
-Files are distributed to each assistant's expected path and transformed as needed (e.g., `.md` → `.mdc` for Cursor).
+Files are distributed to each harness's expected path and transformed as needed (e.g., `.md` → `.mdc` for Cursor).
 
 ### Pre-structured
 
-Contains assistant-specific directories:
+Contains harness-specific directories:
 
 ```
 source-repo/
@@ -78,7 +78,7 @@ source-repo/
     rules/...
 ```
 
-Files are copied as-is without transforms. Each assistant gets only its own directory.
+Files are copied as-is without transforms. Each harness gets only its own directory.
 
 ### Hybrid
 
