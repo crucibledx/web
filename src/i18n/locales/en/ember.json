@@ -33,6 +33,11 @@
     "diagramAlt": "Ember architecture — machine agents and an optional gateway export OTLP to an existing backend",
     "caption": "Ember runs as an agent on each machine. An optional gateway merges machines. Your backend receives standard OTLP."
   },
+  "sessionTree": {
+    "heading": "One session. One trace tree.",
+    "description": "Ember reconstructs parent and child relationships within each session or workstream. ember.work.id groups related work across harnesses without changing trace IDs or merging every session into a universal trace.",
+    "diagramAlt": "Ember session tree — orchestrator, agents, subagents, and tool calls reconstructed into one trace tree per session or workstream"
+  },
   "loop": {
     "heading": "Shared context. Connected telemetry.",
     "description": "<strong>Forge</strong> distributes skills, rules, and workflows. <strong>Ember</strong> traces the work agents do. They integrate through files and open protocols while your harnesses and observability backend stay in place.",

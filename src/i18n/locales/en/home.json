@@ -49,6 +49,7 @@
   },
   "ecosystem": {
     "heading": "Focused tools. Open protocols.",
+    "diagramAlt": "Crucible product boundaries — Starter resources flow through Forge to coding harnesses, while harness telemetry flows independently through Ember to an existing observability backend",
     "forge": {
       "name": "Forge CLI",
       "description": "Sync skills, rules, and workflows across Claude Code, Cursor, Windsurf, Copilot, and Cline.",

@@ -35,11 +35,11 @@ The first plugin release targets Droid and Claude Code through their native plug
 - `forge marketplace emit` and `--check` for Droid and Claude Code catalogs
 - Load checks through each harness's own CLI, without model calls or API keys
 
-### v0.9 — Compiler
+### v0.9 — Compiler and guardian
 
-**Status:** roadmap. The compiler specification is planned separately.
+**Status:** approved design, not released.
 
-Forge will add a compiler for coding-harness context after plugin delivery. Detailed compiler capabilities are not approved yet and are not presented as current product features.
+After plugin delivery, Forge will compile coding-harness context and provide a guardian for deferred skills. Forge spec 0005 approves the design; these capabilities are not current product features.
 
 ### Later harness waves
 

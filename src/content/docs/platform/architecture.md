@@ -27,7 +27,7 @@ The approved v0.8 design adopts Agent Plugins 1.0 packages and the native plugin
 
 Droid and Claude Code load the installed plugins. Forge does not reimplement their plugin runtimes or host a registry. Later v0.8.x work adds producer marketplace catalogs and load checks through the harness CLIs.
 
-The v0.9 compiler is a separate roadmap item. Its detailed design is not approved yet.
+The v0.9 compiler and guardian are a separate roadmap item with an approved design in Forge spec 0005. They are planned, not shipped.
 
 ## Ember
 

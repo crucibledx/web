@@ -62,6 +62,7 @@
     "thStatus": "Status",
     "footer": "Architecture: focused CLIs, with shared infrastructure where products need it. See {link}.",
     "architectureLink": "platform architecture",
+    "diagramAlt": "Crucible product phases — shipped Forge milestones, Ember in development, and future Forge plugin and compiler milestones",
     "items": [
       {"name": "Forge", "type": "CLI", "purpose": "Resource sync · v0.7.0", "status": "Shipped"},
       {"name": "Ember", "type": "OTel Collector", "purpose": "Cross-harness agent tracing", "status": "In development"},

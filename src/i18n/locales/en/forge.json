@@ -28,6 +28,11 @@
     "platformLink": "Forge Skills Starter",
     "note": "Use the starter as a source, or point Forge at the repository you already have."
   },
+  "architecture": {
+    "heading": "Shipped sync architecture. Planned extension boundaries.",
+    "description": "Forge v0.7.0 separates pure domain logic, command handlers, and I/O adapters. Its transactional sync pipeline resolves every source before protected writes. Native plugin delivery and the compiler remain roadmap milestones.",
+    "diagramAlt": "Forge v0.7.0 architecture — domain, application, and infrastructure layers above the transactional sync pipeline, with separate v0.8 plugin-delivery and v0.9 compiler boundaries"
+  },
   "demos": {
     "heading": "The sync workflow",
     "items": [
@@ -154,6 +159,7 @@
   "compiler": {
     "heading": "Roadmap: plugins in v0.8. Compiler in v0.9.",
     "description": "Forge v0.7.0 is the current release. The next milestones add native plugin delivery and then a compiler for coding-harness context. These capabilities are planned, not shipped.",
+    "diagramAlt": "Forge roadmap — v0.8 native plugin delivery to Droid and Claude Code, v0.8.x plugin management and verification, and the planned v0.9 compiler boundary",
     "items": [
       {
         "icon": "📦",
@@ -178,7 +184,7 @@
       {
         "icon": "🌳",
         "title": "v0.9 · Compiler",
-        "description": "Compile context for coding harnesses after plugin delivery. The compiler specification is planned separately; its detailed capabilities are not yet approved."
+        "description": "Compile and guard context for Droid and Claude Code after plugin delivery. Spec 0005 approves the v0.9 design; these capabilities remain planned, not shipped."
       }
     ]
   },
