@@ -30,8 +30,12 @@ jobs:
 
   # Required by the main-branch ruleset: fails while blocking review threads are unresolved.
   # Submitted reviews only re-check the gate (no model run).
+  # Skip drafts here, not in loop-review: a skip inside the reusable workflow reports a skipped `review / review`,
+  # which can land after the real review of the same commit and, counting as passed, hide its verdict.
   review:
-    if: contains(fromJSON('["pull_request","pull_request_review"]'), github.event_name)
+    if: >-
+      contains(fromJSON('["pull_request","pull_request_review"]'), github.event_name) &&
+      !github.event.pull_request.draft
     uses: crucibledx/factory-loop/.github/workflows/loop-review.yml@v0
     secrets: inherit
 
