@@ -37,7 +37,7 @@ Install with npm, Homebrew, or Scoop. Standalone binaries and an install script 
 
 - **v0.8** — Agent Plugins 1.0 packages delivered through Droid and Claude Code's native plugin systems. Local and pinned Git sources, lockfiles, content hashes, and per-harness variants.
 - **v0.8.x** — Plugin management commands, drift reporting, marketplace catalog emission, and harness load checks.
-- **v0.9** — Compiler release. The compiler specification is planned separately; detailed capabilities are not yet approved.
+- **v0.9** — Compiler and guardian release. Forge spec 0005 approves the design; these capabilities are planned, not shipped.
 
 [Forge documentation →](/forge/commands)
 

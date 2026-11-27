@@ -3,11 +3,11 @@
  *
  * Usage in Astro pages:
  *   import { asset } from '@/lib/assets'
- *   <img src={asset('ember/diagrams/light/ember-architecture.svg')} />
+ *   <img src={asset('ember/diagrams/light/ember-v1-architecture.svg')} />
  *
  * Usage in Markdown content:
  *   Use the raw URL directly — Markdown doesn't support imports.
- *   ![Alt](https://github.com/crucibledx/assets/raw/main/ember/diagrams/light/ember-architecture.svg)
+ *   ![Alt](https://github.com/crucibledx/assets/raw/main/ember/diagrams/light/ember-v1-architecture.svg)
  */
 
 const ASSETS_BASE = 'https://github.com/crucibledx/assets/raw/main'
@@ -22,9 +22,12 @@ export const diagrams = {
   productPhases: asset('crucible/diagrams/light/product-phases.svg'),
 
   // ember
-  emberArchitecture: asset('ember/diagrams/light/ember-architecture.svg'),
-  emberClosedLoop: asset('ember/diagrams/light/ember-closed-loop.svg'),
-  emberVisibilityGap: asset('ember/diagrams/light/ember-visibility-gap.svg'),
+  emberArchitecture: asset('ember/diagrams/light/ember-v1-architecture.svg'),
+  emberSessionTree: asset('ember/diagrams/light/ember-v1-session-tree.svg'),
+
+  // forge
+  forgeArchitecture: asset('forge/diagrams/light/forge-architecture.svg'),
+  forgePluginDelivery: asset('forge/diagrams/light/forge-plugin-delivery.svg'),
 
   // platform
   engineerJourney: asset('platform/diagrams/light/engineer-journey.svg'),
